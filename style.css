@@ -18,7 +18,9 @@ body {
 
 .logo-section img {
     height: 40px;
-    margin-right: 10px;
+    width: auto;
+    max-height: 40px;
+}
 }
 
 .logo-section span {
