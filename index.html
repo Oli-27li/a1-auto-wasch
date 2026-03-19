@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A1 Auto Wasch</title>
+    <style>
+        /* Стили прямо здесь, чтобы GitHub точно их увидел */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            /* Белый фон с пузырьками (пока просто белый, чтобы не мешал) */
+            background-color: #ffffff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        /* ОГРАНИЧИВАЕМ РАЗМЕР КАРТИНКИ (логотипа) */
+        .logo-img {
+            max-height: 60px; /* Чтобы лого не на пол-экрана */
+            width: auto;
+            margin-right: 15px;
+        }
+
+        .brand-name {
+            color: #0091D5; /* Светло-синий как на фото */
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #0091D5;
+            margin-left: 20px;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            color: #005a87;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="header-left">
+            <img src="image.png" alt="Logo" class="logo-img">
+            <span class="brand-name">A1 Auto Wasch</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#">Startseite</a>
+            <a href="#">Dienstleistungen</a>
+            <a href="#">Erfahrung</a>
+            <a href="#">Termin buchen</a>
+            <a href="#">Kontakt</a>
+        </nav>
+    </header>
+
+</body>
+</html>
+
+
