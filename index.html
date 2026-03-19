@@ -10,8 +10,14 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', sans-serif;
-            /* Белый фон с пузырьками (пока просто белый, чтобы не мешал) */
-            background-color: #ffffff;
+
+            /* ВОТ ЭТА СТРОЧКА ДОБАВЛЯЕТ ФОН */
+            background: url('bubbles-bg.jpg') no-repeat center center fixed;
+
+            /* Это заставляет картинку растягиваться на весь экран и не повторяться */
+            background-size: cover;
+
+            min-height: 100vh;
         }
 
         .navbar {
