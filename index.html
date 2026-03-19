@@ -4,77 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A1 Auto Wasch</title>
-    
-        <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Segoe UI', Tahoma, sans-serif;
 
-        /* Пробуем вставить прямую ссылку на картинку */
-        background-image: url('https://github.com/Oli-27li/a1-auto-wasch/blob/main/bubbles-bg.jpg?raw=true');
-
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        background-size: cover;
-        min-height: 100vh;
-        background-color: #ffffff; /* Белый фон, если вдруг ссылка битая */
-    }
-
-
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 40px;
-        /* Делаем шапку чуть прозрачной, чтобы пузырьки просвечивали */
-        background: rgba(255, 255, 255, 0.85);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-
-    .header-left {
-        display: flex;
-        align-items: center;
-    }
-
-    .logo-img {
-        max-height: 50px;
-        width: auto;
-        margin-right: 15px;
-    }
-
-    .brand-name {
-        color: #0091D5;
-        font-size: 22px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .nav-links a {
-        text-decoration: none;
-        color: #0091D5;
-        margin-left: 25px;
-        font-weight: 600;
-        font-size: 15px;
-        transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-        color: #005a87;
-    }
-</style>
-
-
+    <style>
+        /* Весь CSS теперь строго внутри одного блока STYLE */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-image: url('https://github.com/Oli-27li/a1-auto-wasch/blob/main/bubbles-bg.jpg?raw=true');
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-attachment: fixed;
+            background-size: cover;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 40px;
-            background: white;
-            border-bottom: 1px solid #eee;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.85); /* Полупрозрачный фон */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .header-left {
@@ -82,18 +37,18 @@
             align-items: center;
         }
 
-        /* ОГРАНИЧИВАЕМ РАЗМЕР КАРТИНКИ (логотипа) */
         .logo-img {
-            max-height: 60px; /* Чтобы лого не на пол-экрана */
+            max-height: 55px; /* Оптимальный размер логотипа */
             width: auto;
             margin-right: 15px;
         }
 
         .brand-name {
-            color: #0091D5; /* Светло-синий как на фото */
+            color: #0091D5;
             font-size: 24px;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .nav-links {
@@ -103,9 +58,10 @@
         .nav-links a {
             text-decoration: none;
             color: #0091D5;
-            margin-left: 20px;
-            font-weight: 500;
+            margin-left: 25px;
+            font-weight: 600;
             font-size: 16px;
+            transition: 0.3s;
         }
 
         .nav-links a:hover {
