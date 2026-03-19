@@ -4,21 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A1 Auto Wasch</title>
-    <style>
-        /* Стили прямо здесь, чтобы GitHub точно их увидел */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', sans-serif;
+    
+        <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
 
-            /* ВОТ ЭТА СТРОЧКА ДОБАВЛЯЕТ ФОН */
-            background: url('bubbles-bg.jpg') no-repeat center center fixed;
+        /* Запасной светло-голубой цвет, если картинка не прогрузится */
+        background-color: #e0f2ff;
 
-            /* Это заставляет картинку растягиваться на весь экран и не повторяться */
-            background-size: cover;
+        /* Добавляем ?v=1, чтобы сбросить кеш GitHub */
+        background-image: url('bubbles-bg.jpg?v=1');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
 
-            min-height: 100vh;
-        }
+        min-height: 100vh;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        /* Делаем шапку чуть прозрачной, чтобы пузырьки просвечивали */
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-img {
+        max-height: 50px;
+        width: auto;
+        margin-right: 15px;
+    }
+
+    .brand-name {
+        color: #0091D5;
+        font-size: 22px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #0091D5;
+        margin-left: 25px;
+        font-weight: 600;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #005a87;
+    }
+</style>
+
+
 
         .navbar {
             display: flex;
