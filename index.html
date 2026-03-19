@@ -11,18 +11,17 @@
         padding: 0;
         font-family: 'Segoe UI', Tahoma, sans-serif;
 
-        /* Запасной светло-голубой цвет, если картинка не прогрузится */
-        background-color: #e0f2ff;
+        /* Пробуем вставить прямую ссылку на картинку */
+        background-image: url('https://github.com/Oli-27li/a1-auto-wasch/blob/main/bubbles-bg.jpg?raw=true');
 
-        /* Добавляем ?v=1, чтобы сбросить кеш GitHub */
-        background-image: url('bubbles-bg.jpg?v=1');
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
         background-size: cover;
-
         min-height: 100vh;
+        background-color: #ffffff; /* Белый фон, если вдруг ссылка битая */
     }
+
 
     .navbar {
         display: flex;
