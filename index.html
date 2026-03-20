@@ -115,13 +115,13 @@
         }
         .btn-book:hover { background-color: #005a87; }
 
-        /* --- ДИЗАЙНЕРСКИЙ CSS ПОДАРOК (Сдвинут выше) --- */
+        /* --- ДИЗАЙНЕРСКИЙ CSS ПОДАРOК (Бант не закрывает дату) --- */
         .gift-badge-css {
             position: absolute;
-            top: -60px; /* СДВИНУЛ ЕЩЕ ВЫШЕ, ЧТОБЫ НЕ ЗАКРЫВАЛ ТЕКСТ */
+            top: -70px;
             right: -25px;
             width: 150px;
-            height: 170px;
+            height: 180px;
             text-decoration: none;
             z-index: 100;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -135,8 +135,9 @@
             font-weight: 900;
             color: #f44336;
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 12px; /* Увеличил отступ от банта */
             text-align: center;
+            line-height: 1.3;
         }
 
         .gift-box-css {
@@ -165,7 +166,7 @@
 
         .gift-bow-css {
             position: absolute;
-            top: -18px;
+            top: -15px; /* Чуть ниже, чтобы освободить место дате */
             left: 50%;
             transform: translateX(-50%);
             width: 60px;
@@ -183,6 +184,7 @@
             line-height: 1.2;
             text-transform: uppercase;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            text-align: center;
         }
 
         .extras-section { padding: 60px 20px; background-color: rgba(0, 145, 213, 0.03); text-align: center; }
@@ -205,7 +207,8 @@
         </div>
         <nav class="nav-links">
             <a href="#">Startseite</a>
-            <a href="#about">Über uns</a> <a href="#services">Dienstleistungen</a>
+            <a href="#about">Über uns</a>
+            <a href="#services">Dienstleistungen</a>
             <a href="#opening"><i class="fa-regular fa-clock"></i>Öffnungszeiten</a>
             <a href="#booking">Termin</a>
             <a href="#contact">Kontakt</a>
@@ -217,8 +220,8 @@
             <h2 class="section-title">Über uns</h2>
             <p style="max-width: 850px; margin: 0 auto; font-size: 19px; line-height: 1.8; color: #444;">
                 Willkommen bei <strong>A1 Auto Wasch</strong>! Wir sind Ihr professioneller Partner für erstklassige Fahrzeugpflege in Saarbrücken.
-                Unser Ziel ist es, jedem Fahrzeug zu neuem Glanz zu verhelfen – mit Liebe zum Detail, modernster Technik und höchstem Qualitätsanspruch.
-                Ob einfache Innenreinigung или exklusive Keramikversiegelung: Bei uns ist Ihr Auto in den besten Händen.
+                Unser Ziel ist es, jedem Fahrzeug zu neuem Glanz zu verhelfen – mit Liebe zum Detail, modernster Technik und höchstem Qualitätsанspruch.
+                Ob einfache Innenreinigung oder exklusive Keramikversiegelung: Bei uns ist Ihr Auto in den besten Händen.
             </p>
         </div>
     </section>
@@ -277,7 +280,7 @@
                             <li>Intensiv Innenraumreinigung</li>
                             <li>Außenwäsche: Scheibenreinigung</li>
                             <li>Innenraum (Dampf Extraktionsgerät)</li>
-                            <li>Armaturenbrett, Türverkleidungen</li>
+                            <li>Armaturenbrett, Türverkleidungen, Fußmatten</li>
                         </ul>
                     </div>
                     <a href="#booking" class="btn-book">Termin buchen</a>
@@ -349,7 +352,7 @@
         <div class="container">
             <h2 class="section-title">Öffnungszeiten</h2>
             <p style="font-size: 20px; line-height: 1.8;">
-                Мы настроим график здесь по твоему желанию.
+                Wir werden diesen Bereich morgen aktualisieren.
             </p>
         </div>
     </section>
