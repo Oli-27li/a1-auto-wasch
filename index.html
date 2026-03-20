@@ -115,16 +115,16 @@
         }
         .btn-book:hover { background-color: #005a87; }
 
-        /* --- ДИЗАЙНЕРСКИЙ CSS ПОДАРOК (Бант не закрывает дату) --- */
+        /* --- ПОДАРОК: ТЕПЕРЬ С НАСТОЯЩИМ БАНТОМ (ПЕТЛЯМИ) --- */
         .gift-badge-css {
             position: absolute;
-            top: -70px;
+            top: -95px; /* Поднял еще выше, чтобы бант не закрывал текст даты */
             right: -25px;
             width: 150px;
-            height: 180px;
+            height: 200px;
             text-decoration: none;
             z-index: 100;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s;
         }
 
         .gift-badge-css:hover { transform: scale(1.1) rotate(5deg); }
@@ -135,9 +135,8 @@
             font-weight: 900;
             color: #f44336;
             text-transform: uppercase;
-            margin-bottom: 12px; /* Увеличил отступ от банта */
+            margin-bottom: 30px; /* Большой отступ от новых петлей банта */
             text-align: center;
-            line-height: 1.3;
         }
 
         .gift-box-css {
@@ -164,15 +163,53 @@
             background: #f44336;
         }
 
-        .gift-bow-css {
+        /* Узел в центре */
+        .gift-bow-center {
             position: absolute;
-            top: -15px; /* Чуть ниже, чтобы освободить место дате */
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             background: #f44336;
-            border-radius: 30px 30px 0 0;
+            border-radius: 50%;
+            z-index: 15;
+        }
+
+        /* Ушки банта (петельки) */
+        .gift-bow-css {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 35px;
+            background: none;
+            z-index: 10;
+        }
+
+        /* Левое ушко */
+        .gift-bow-css::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 35px;
+            height: 35px;
+            background: #f44336;
+            border-radius: 20px 20px 0 20px;
+            transform: rotate(-10deg);
+        }
+
+        /* Правое ушко */
+        .gift-bow-css::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 35px;
+            height: 35px;
+            background: #f44336;
+            border-radius: 20px 20px 20px 0;
+            transform: rotate(10deg);
         }
 
         .gift-inner-text-css {
@@ -183,7 +220,6 @@
             font-size: 13px;
             line-height: 1.2;
             text-transform: uppercase;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
             text-align: center;
         }
 
@@ -220,7 +256,7 @@
             <h2 class="section-title">Über uns</h2>
             <p style="max-width: 850px; margin: 0 auto; font-size: 19px; line-height: 1.8; color: #444;">
                 Willkommen bei <strong>A1 Auto Wasch</strong>! Wir sind Ihr professioneller Partner für erstklassige Fahrzeugpflege in Saarbrücken.
-                Unser Ziel ist es, jedem Fahrzeug zu neuem Glanz zu verhelfen – mit Liebe zum Detail, modernster Technik und höchstem Qualitätsанspruch.
+                Unser Ziel ist es, jedem Fahrzeug zu neuem Glanz zu verhelfen – mit Liebe zum Detail, modernster Technik und höchstem Qualitätsanspruch.
                 Ob einfache Innenreinigung oder exklusive Keramikversiegelung: Bei uns ist Ihr Auto in den besten Händen.
             </p>
         </div>
@@ -229,34 +265,17 @@
     <section id="services" class="services-section">
         <div class="container">
             <h2 class="section-title">Unsere Pflegepakete</h2>
-            <p class="section-subtitle">Professionelle Fahrzeugreinigung (inkl. 19% MwSt.)</p>
-
             <div class="packages-grid">
 
                 <div class="package-card">
-                    <div>
-                        <h3 class="package-name">Pflegepaket 1</h3>
-                        <div class="package-price">75€<span> / ab</span></div>
-                        <ul class="package-details">
-                            <li>Außenwäsche</li>
-                            <li>Innenraumreinigung</li>
-                        </ul>
-                    </div>
+                    <div><h3 class="package-name">Pflegepaket 1</h3><div class="package-price">75€<span> / ab</span></div>
+                    <ul class="package-details"><li>Außenwäsche</li><li>Innenraumreinigung</li></ul></div>
                     <a href="#booking" class="btn-book">Termin buchen</a>
                 </div>
 
                 <div class="package-card">
-                    <div>
-                        <h3 class="package-name">Pflegepaket 2</h3>
-                        <div class="package-price">150€<span> / ab</span></div>
-                        <ul class="package-details">
-                            <li>Lackaufbereitung</li>
-                            <li>Außenwäsche</li>
-                            <li>Flugrost</li>
-                            <li>Innenraumreinigung</li>
-                            <li>maschinelle 1 Gang Hochglanz-Lackpolitur</li>
-                        </ul>
-                    </div>
+                    <div><h3 class="package-name">Pflegepaket 2</h3><div class="package-price">150€<span> / ab</span></div>
+                    <ul class="package-details"><li>Lackaufbereitung</li><li>Außenwäsche</li><li>Flugrost</li><li>Innenraumreinigung</li><li>maschinelle 1 Gang Hochglanz-Lackpolitur</li></ul></div>
                     <a href="#booking" class="btn-book">Termin buchen</a>
                 </div>
 
@@ -264,69 +283,36 @@
                     <a href="#contact" class="gift-badge-css">
                         <span class="gift-top-text-arc">Neueroffnung<br>01.04.2026</span>
                         <div class="gift-box-css">
-                            <div class="gift-bow-css"></div>
-                            <div class="gift-ribbon-css"></div>
-                            <div class="gift-inner-text-css">
-                                Knackige 20%<br>
-                                bis 01.05.26
-                            </div>
+                            <div class="gift-bow-center"></div> <div class="gift-bow-css"></div> <div class="gift-ribbon-css"></div>
+                            <div class="gift-inner-text-css">Knackige 20%<br>bis 01.05.26</div>
                         </div>
                     </a>
-                    <div>
-                        <h3 class="package-name">Pflegepaket 3</h3>
-                        <div class="package-price">150€<span> / KL2</span></div>
-                        <div style="color: #555; font-size: 16px; margin-top: -15px; margin-bottom: 10px;">KL3 ab 300€</div>
-                        <ul class="package-details">
-                            <li>Intensiv Innenraumreinigung</li>
-                            <li>Außenwäsche: Scheibenreinigung</li>
-                            <li>Innenraum (Dampf Extraktionsgerät)</li>
-                            <li>Armaturenbrett, Türverkleidungen, Fußmatten</li>
-                        </ul>
-                    </div>
+                    <div><h3 class="package-name">Pflegepaket 3</h3><div class="package-price">150€<span> / KL2</span></div>
+                    <ul class="package-details"><li>Intensiv Innenraumreinigung</li><li>Außenwäsche: Scheibenreinigung</li><li>Innenraum (Dampf Extraktionsgerät)</li><li>Armaturenbrett, Türverkleidungen, Fußmatten</li></ul></div>
                     <a href="#booking" class="btn-book">Termin buchen</a>
                 </div>
 
                 <div class="package-card">
-                    <div>
-                        <h3 class="package-name">Pflegepaket 4</h3>
-                        <div class="package-price">250€<span> / KL2</span></div>
-                        <div style="color: #555; font-size: 16px; margin-top: -15px; margin-bottom: 10px;">KL3 ab 300€</div>
-                        <ul class="package-details">
-                            <li>Lackaufbereitung</li>
-                            <li>Außenwäsche, Innenraumreinigung</li>
-                            <li>maschinelle 2 Gang Hochglanz-Lackpolitur</li>
-                        </ul>
-                    </div>
+                    <div><h3 class="package-name">Pflegepaket 4</h3><div class="package-price">250€<span> / KL2</span></div>
+                    <ul class="package-details"><li>Lackaufbereitung</li><li>Außenwäsche, Innenraumreinigung</li><li>maschinelle 2 Gang Hochglanz-Lackpolitur</li></ul></div>
                     <a href="#booking" class="btn-book">Termin buchen</a>
                 </div>
 
                 <div class="package-card">
-                    <div>
-                        <h3 class="package-name">Pflegepaket 5</h3>
-                        <div class="package-price">350€<span> / ab</span></div>
-                        <ul class="package-details">
-                            <li>Kompl. Aufbereitung</li>
-                            <li>Außenwäsche, Intensiv Innenraumreinigung</li>
-                            <li>(Dampf Extraktionsgerät)</li>
-                            <li>maschinelle 2 Gang Hochglanz-Lackpolitur</li>
-                        </ul>
-                    </div>
+                    <div><h3 class="package-name">Pflegepaket 5</h3><div class="package-price">350€<span> / ab</span></div>
+                    <ul class="package-details"><li>Kompl. Aufbereitung</li><li>Außenwäsche, Intensiv Innenraumreinigung</li><li>(Dampf Extraktionsgerät)</li><li>maschinelle 2 Gang Hochglanz-Lackpolitur</li></ul></div>
                     <a href="#booking" class="btn-book">Termin buchen</a>
                 </div>
 
                 <div class="package-card">
-                    <div>
-                        <h3 class="package-name">Pflegepaket 6</h3>
-                        <div class="package-price">380€<span> / ab</span></div>
-                        <ul class="package-details">
-                            <li>Intensiv Innenraumreinigung</li>
-                            <li>Nano/Keramik Versiegelung</li>
-                            <li>Langzeit-Lackschutz</li>
-                        </ul>
-                    </div>
+                    <div><h3 class="package-name">Pflegepaket 6</h3><div class="package-price">380€<span> / ab</span></div>
+                    <ul class="package-details">
+                        <li>Intensiv Innenraumreinigung</li>
+                        <li>Nano/Keramik Versiegelung</li>
+                        <li>Langzeit-Lackschutz</li>
+                    </ul></div>
                     <a href="#booking" class="btn-book">Termin buchen</a>
                 </div>
-
             </div>
         </div>
     </section>
@@ -349,30 +335,21 @@
     </section>
 
     <section id="opening" class="opening-section">
-        <div class="container">
-            <h2 class="section-title">Öffnungszeiten</h2>
-            <p style="font-size: 20px; line-height: 1.8;">
-                Wir werden diesen Bereich morgen aktualisieren.
-            </p>
-        </div>
+        <div class="container"><h2 class="section-title">Öffnungszeiten</h2>
+        <p style="font-size: 20px;">Mo - Fr: 08:00 - 18:00<br>Sa: 09:00 - 15:00</p></div>
     </section>
 
     <section id="booking" class="booking-section">
-        <div class="container">
-            <h2 class="section-title">Termin buchen</h2>
-            <p>Здесь будет форма записи.</p>
-        </div>
+        <div class="container"><h2 class="section-title">Termin buchen</h2><p>Форма записи будет здесь.</p></div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Kontakt</h2>
-            <div class="contact-box">
-                <p><i class="fa-solid fa-location-dot"></i> Lebacher Str. 145 - 66113 Saarbrücken</p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:068139689991" style="text-decoration:none; color:inherit;">0681-39689991</a></p>
-            </div>
-        </div>
-    </section>
+    <footer id="contact" class="contact-section">
+        <div class="container"><h2 class="section-title">Kontakt</h2>
+        <div class="contact-box">
+            <p><i class="fa-solid fa-location-dot"></i> Lebacher Str. 145 - 66113 Saarbrücken</p>
+            <p><i class="fa-solid fa-phone"></i> 0681-39689991</p>
+        </div></div>
+    </footer>
 
 </body>
 </html>
