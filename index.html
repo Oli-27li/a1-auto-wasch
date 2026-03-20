@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+        /* Основные настройки фона и шрифтов */
         body {
             margin: 0;
             padding: 0;
@@ -19,8 +20,10 @@
             background-size: cover;
             min-height: 100vh;
             background-color: #ffffff;
+            scroll-behavior: smooth; /* Плавная прокрутка к услугам */
         }
 
+        /* Шапка сайта */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -68,14 +71,73 @@
             align-items: center;
         }
 
-        /* Стиль для иконки часиков */
         .nav-links a i {
-            margin-right: 8px; /* Отступ между иконкой и текстом */
+            margin-right: 8px;
             font-size: 18px;
         }
 
         .nav-links a:hover {
             color: #005a87;
+        }
+
+        /* Секция Услуг */
+        .services-section {
+            padding: 80px 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-top: 50px;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services-title {
+            color: #0091D5;
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid #0091D5;
+        }
+
+        .service-icon {
+            color: #0091D5;
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .service-name {
+            color: #0091D5;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .service-description {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -89,12 +151,58 @@
 
         <nav class="nav-links">
             <a href="#">Startseite</a>
-            <a href="#">Dienstleistungen</a>
+            <a href="#services">Dienstleistungen</a>
             <a href="#"><i class="fa-regular fa-clock"></i>Öffnungszeiten</a>
             <a href="#">Termin buchen</a>
             <a href="#">Kontakt</a>
         </nav>
     </header>
+
+    <section id="services" class="services-section">
+        <div class="services-container">
+            <h2 class="services-title">Unsere Dienstleistungen</h2>
+
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-car-side"></i></div>
+                    <h3 class="service-name">Außenreinigung</h3>
+                    <p class="service-description">Gründliche Handwäsche, Felgenreinigung und professionelle Anti-Moskitowäsche.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-broom"></i></div>
+                    <h3 class="service-name">Innenreinigung</h3>
+                    <p class="service-description">Komplette Innenreinigung inklusive Staubsaugen и Teppichwäsche für ein frisches Gefühl.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+                    <h3 class="service-name">Politur & Lack</h3>
+                    <p class="service-description">Entfernung von kleinen Kratzern и Politur für maximalen Glanz Ihres Fahrzeugs.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-mask-face"></i></div>
+                    <h3 class="service-name">Desinfektion</h3>
+                    <p class="service-description">Professionelle Desinfektion des Innenraums für Hygiene und Sicherheit.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <h3 class="service-name">Regenschutz</h3>
+                    <p class="service-description">Spezielle Scheibenversiegelung und Schutz vor Regen für eine sicherere Fahrt.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-shop"></i></div>
+                    <h3 class="service-name">Pflegemittel</h3>
+                    <p class="service-description">Verkauf hochwertiger Autopflegeprodukte für die Pflege zwischendurch.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
