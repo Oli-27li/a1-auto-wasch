@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A1 Auto Wasch</title>
+    <title>A1 Auto Wasch - Pflegepakete & Preise</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -19,7 +19,7 @@
             background-size: cover;
             min-height: 100vh;
             background-color: #ffffff;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Плавная прокрутка! */
         }
 
         .navbar {
@@ -34,91 +34,96 @@
             z-index: 1000;
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-img {
-            max-height: 55px;
-            width: auto;
-            margin-right: 15px;
-        }
-
-        .brand-name {
-            color: #0091D5;
-            font-size: 24px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #0091D5;
-            margin-left: 25px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-        }
-
+        .header-left { display: flex; align-items: center; }
+        .logo-img { max-height: 55px; width: auto; margin-right: 15px; }
+        .brand-name { color: #0091D5; font-size: 24px; font-weight: bold; text-transform: uppercase; }
+        .nav-links a { text-decoration: none; color: #0091D5; margin-left: 25px; font-weight: 600; display: inline-flex; align-items: center; }
         .nav-links a i { margin-right: 8px; }
 
-        .services-section {
-            padding: 80px 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
+        /* --- Общие настройки секций --- */
+        .services-section { padding: 80px 20px; background-color: rgba(255, 255, 255, 0.85); text-align: center; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-title { color: #0091D5; font-size: clamp(28px, 6vw, 40px); margin-bottom: 20px; text-transform: uppercase; }
+        .section-subtitle { color: #555; font-size: 18px; margin-bottom: 60px; }
 
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .services-title {
-            color: #0091D5;
-            font-size: clamp(24px, 5vw, 36px);
-            margin-bottom: 50px;
-            text-transform: uppercase;
-        }
-
-        .services-grid {
+        /* --- Сетка Пакетов (Pricing Grid) --- */
+        .packages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            margin-bottom: 60px;
         }
 
-        .service-card {
+        .package-card {
             background: white;
-            padding: 40px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px 25px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.07);
             transition: 0.4s;
-            border-bottom: 5px solid transparent;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-bottom: 5px solid #0091D5;
-        }
+        .package-card:hover { transform: translateY(-15px); box-shadow: 0 15px 50px rgba(0, 145, 213, 0.1); }
 
-        .service-icon {
-            color: #0091D5;
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
+        .package-name { color: #0091D5; font-size: 24px; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; }
+        .package-price { color: #0091D5; font-size: 48px; font-weight: bold; margin-bottom: 25px; }
+        .package-price span { font-size: 20px; font-weight: normal; color: #555; }
+        .package-details { text-align: left; list-style: none; padding: 0; margin-bottom: 30px; color: #444; }
+        .package-details li { margin-bottom: 12px; padding-left: 25px; position: relative; line-height: 1.5; }
+        .package-details li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: #0091D5; position: absolute; left: 0; }
 
-        .service-name {
-            color: #0091D5;
-            font-size: 22px;
+        /* --- Кнопка ЗАБРОНИРОВАТЬ (Termin buchen) --- */
+        .btn-book {
+            background-color: #0091D5;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
             font-weight: bold;
-            margin-bottom: 15px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            margin-top: 20px;
         }
 
-        .service-description {
-            color: #444;
-            line-height: 1.6;
-            font-size: 15px;
+        .btn-book:hover { background-color: #005a87; }
+
+        /* Баннер скидки */
+        .discount-banner {
+            background-color: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 60px;
+            text-transform: uppercase;
         }
+
+        /* Секция Экстра (Таблица) */
+        .extras-section { padding: 60px 20px; background-color: rgba(0, 145, 213, 0.03); text-align: center; }
+        .extras-table {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .extras-table th, .extras-table td { text-align: left; padding: 20px 30px; border-bottom: 1px solid #eee; }
+        .extras-table th { background-color: #0091D5; color: white; text-transform: uppercase; }
+        .extras-table tr:last-child td { border-bottom: none; }
+        .extras-price { color: #0091D5; font-weight: bold; text-align: right; }
+
     </style>
 </head>
 <body>
@@ -132,54 +137,150 @@
             <a href="#">Startseite</a>
             <a href="#services">Dienstleistungen</a>
             <a href="#"><i class="fa-regular fa-clock"></i>Öffnungszeiten</a>
-            <a href="#">Termin</a>
-            <a href="#">Kontakt</a>
+            <a href="#booking">Termin</a> <a href="#">Kontakt</a>
         </nav>
     </header>
 
     <section id="services" class="services-section">
-        <div class="services-container">
-            <h2 class="services-title">Unsere Dienstleistungen</h2>
-            <div class="services-grid">
+        <div class="container">
+            <h2 class="section-title">Unsere Pflegepakete</h2>
+            <p class="section-subtitle">Professionelle Fahrzeugreinigung (inkl. 19% MwSt.)</p>
 
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-car-side"></i></div>
-                    <h3 class="service-name">Außenreinigung</h3>
-                    <p class="service-description">Gründliche Handwäsche, Felgenreinigung und professionelle Anti-Moskitowäsche.</p>
-                </div>
+            <div class="discount-banner">
+                <i class="fa-solid fa-gift"></i> Neueroffnung Knackige 20% bis 01.05.26 <i class="fa-solid fa-gift"></i>
+            </div>
 
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-car"></i></div>
-                    <h3 class="service-name">Innenreinigung</h3>
-                    <p class="service-description">Komplette Innenreinigung inklusive Staubsaugen und Teppichwäsche для идеальной чистоты.</p>
-                </div>
+            <div class="packages-grid">
 
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-wand-sparkles"></i></div>
-                    <h3 class="service-name">Politur & Lack</h3>
-                    <p class="service-description">Entfernung von kleinen Kratzern und professionelle Hochglanz-Politur.</p>
-                </div>
+                <div class="package-card">
+                    <div>
+                        <h3 class="package-name">Pflegepaket 1</h3>
+                        <div class="package-price">75€<span> / ab</span></div>
+                        <ul class="package-details">
+                            <li>Außenwäsche</li>
+                            <li>Innenraumreinigung</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
 
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-shield-car"></i></div>
-                    <h3 class="service-name">Desinfektion</h3>
-                    <p class="service-description">Komplette Innenraum-Desinfektion für Ihre Hygiene und Sicherheit.</p>
-                </div>
+                <div class="package-card">
+                    <div>
+                        <h3 class="package-name">Pflegepaket 2</h3>
+                        <div class="package-price">150€<span> / ab</span></div>
+                        <ul class="package-details">
+                            <li>Lackaufbereitung</li>
+                            <li>Außenwäsche</li>
+                            <li>Flugrost</li>
+                            <li>Innenraumreinigung</li>
+                            <li>maschinelle 1 Gang Hochglanz-Lackpolitur</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
 
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-cloud-showers-water"></i></div>
-                    <h3 class="service-name">Regenschutz</h3>
-                    <p class="service-description">Spezielle Scheibenversiegelung für bessere Sicht bei Regen.</p>
-                </div>
+                <div class="package-card">
+                    <div>
+                        <h3 class="package-name">Pflegepaket 3</h3>
+                        <div class="package-price">150€<span> / KL2</span></div>
+                        <div style="color: #555; font-size: 16px; margin-top: -15px; margin-bottom: 10px;">KL3 ab 300€</div>
+                        <ul class="package-details">
+                            <li>Intensiv Innenraumreinigung</li>
+                            <li>Außenwäsche: Scheibenreinigung</li>
+                            <li>Innenraum (Teppich, Sitzpolster, Kofferraum + mit Dampf Extraktionsgerät reinigen)</li>
+                            <li>Armaturenbrett, Türverkleidungen, Fußmatten, Türrahmen</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
 
-                <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-                    <h3 class="service-name">Pflegemittel</h3>
-                    <p class="service-description">Verkauf von hochwertigen Produkten für die Pflege Ihres Fahrzeugs.</p>
-                </div>
+                 <div class="package-card">
+                    <div>
+                        <h3 class="package-name">Pflegepaket 4</h3>
+                        <div class="package-price">250€<span> / KL2</span></div>
+                        <div style="color: #555; font-size: 16px; margin-top: -15px; margin-bottom: 10px;">KL3 ab 300€</div>
+                        <ul class="package-details">
+                            <li>Lackaufbereitung</li>
+                            <li>Außenwäsche, Innenraumreinigung</li>
+                            <li>Flugrost, maschinelle 2 Gang Hochglanz-Lackpolitur</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
+
+                <div class="package-card">
+                    <div>
+                        <h3 class="package-name">Pflegepaket 5</h3>
+                        <div class="package-price">350€<span> / ab</span></div>
+                        <ul class="package-details">
+                            <li>Kompl. Aufbereitung</li>
+                            <li>Außenwäsche, Intensiv Innenraumreinigung</li>
+                            <li>(Teppich, Sitzpolster, Kofferraum + mit Dampf Extraktionsgerät reinigen)</li>
+                            <li>Flugrost, maschinelle 2 Gang Hochglanz-Lackpolitur</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
+
+                <div class="package-card">
+                    <div>
+                        <h3 class="package-name">Pflegepaket 6</h3>
+                        <div class="package-price">380€<span> / ab</span></div>
+                        <ul class="package-details">
+                            <li>Außenwäsche, Intensiv Innenraumreinigung</li>
+                            <li>Lackkneten, maschinelle 2 Gang Hochglanz-Lackpolitur</li>
+                            <li>Nano/Keramik Versiegelung</li>
+                            <li>Der Langzeit-Lackschutz gegen Witterungseinflüsse</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
 
             </div>
         </div>
+    </section>
+
+    <section class="extras-section">
+        <div class="container">
+            <h2 class="section-title">Extras</h2>
+            <p class="section-subtitle">Individuelle Zusatzleistungen für Ihr Fahrzeug</p>
+
+            <table class="extras-table">
+                <thead>
+                    <tr>
+                        <th>Dienstleistung</th>
+                        <th>Preis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Frontscheibenversiegelung (Scheiben Versiegelung, Windschutzscheibe, Heckscheibe)</td>
+                        <td class="extras-price">ab 40€</td>
+                    </tr>
+                    <tr>
+                        <td>Sämtl. Fenster und Außenspiegel</td>
+                        <td class="extras-price">ab 80€</td>
+                    </tr>
+                    <tr>
+                        <td>Dachhimmel Shamponieren</td>
+                        <td class="extras-price">ab 40€</td>
+                    </tr>
+                    <tr>
+                        <td>Lederpflege</td>
+                        <td class="extras-price">ab 50€</td>
+                    </tr>
+                    <tr>
+                        <td>Stoffverdeck Pflege + Imprägnierung</td>
+                        <td class="extras-price">ab 35€</td>
+                    </tr>
+                    <tr>
+                        <td>Ozonbehandlung</td>
+                        <td class="extras-price">ab 35€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="booking" style="padding: 100px 20px; text-align: center; background-color: white;">
+        <div class="container">
+            <h2 class="section-title">Termin buchen</h2>
+            <p class="section-subtitle">Hier werden мы создадим форму для записи или добавим контакты для бронирования.</p>
+            </div>
     </section>
 
 </body>
