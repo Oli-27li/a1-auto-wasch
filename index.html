@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A1 Auto Wasch</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* Основные настройки фона и шрифтов */
         body {
             margin: 0;
             padding: 0;
@@ -20,16 +19,15 @@
             background-size: cover;
             min-height: 100vh;
             background-color: #ffffff;
-            scroll-behavior: smooth; /* Плавная прокрутка к услугам */
+            scroll-behavior: smooth;
         }
 
-        /* Шапка сайта */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
@@ -52,12 +50,6 @@
             font-size: 24px;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
         }
 
         .nav-links a {
@@ -65,26 +57,15 @@
             color: #0091D5;
             margin-left: 25px;
             font-weight: 600;
-            font-size: 16px;
-            transition: 0.3s;
-            display: flex;
+            display: inline-flex;
             align-items: center;
         }
 
-        .nav-links a i {
-            margin-right: 8px;
-            font-size: 18px;
-        }
+        .nav-links a i { margin-right: 8px; }
 
-        .nav-links a:hover {
-            color: #005a87;
-        }
-
-        /* Секция Услуг */
         .services-section {
-            padding: 80px 40px;
+            padding: 80px 20px;
             background-color: rgba(255, 255, 255, 0.8);
-            margin-top: 50px;
         }
 
         .services-container {
@@ -95,55 +76,48 @@
 
         .services-title {
             color: #0091D5;
-            font-size: 36px;
-            font-weight: bold;
-            text-transform: uppercase;
+            font-size: clamp(24px, 5vw, 36px);
             margin-bottom: 50px;
+            text-transform: uppercase;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
         .service-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border-bottom: 4px solid transparent;
+            background: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            border-bottom: 5px solid transparent;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            border-bottom: 4px solid #0091D5;
+            border-bottom: 5px solid #0091D5;
         }
 
-        /* НАСТРОЙКИ ИКОНОК В КАРТОЧКАХ (ОБНОВЛЕНО) */
         .service-icon {
             color: #0091D5;
-            font-size: 55px; /* Увеличили размер */
-            margin-bottom: 25px;
-            transition: 0.3s;
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.1); /* Легкое увеличение при наведении */
+            font-size: 60px;
+            margin-bottom: 20px;
         }
 
         .service-name {
             color: #0091D5;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .service-description {
-            color: #555;
+            color: #444;
+            line-height: 1.6;
             font-size: 15px;
-            line-height: 1.5;
         }
     </style>
 </head>
@@ -154,12 +128,11 @@
             <img src="image.png" alt="Logo" class="logo-img">
             <span class="brand-name">A1 Auto Wasch</span>
         </div>
-
         <nav class="nav-links">
             <a href="#">Startseite</a>
             <a href="#services">Dienstleistungen</a>
             <a href="#"><i class="fa-regular fa-clock"></i>Öffnungszeiten</a>
-            <a href="#">Termin buchen</a>
+            <a href="#">Termin</a>
             <a href="#">Kontakt</a>
         </nav>
     </header>
@@ -167,43 +140,42 @@
     <section id="services" class="services-section">
         <div class="services-container">
             <h2 class="services-title">Unsere Dienstleistungen</h2>
-
             <div class="services-grid">
 
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-car-wash"></i></div>
+                    <div class="service-icon"><i class="fa-solid fa-car-side"></i></div>
                     <h3 class="service-name">Außenreinigung</h3>
-                    <p class="service-description">Gründliche Handwäsche, Felgenreinigung und профессиональная Anti-Moskitowäsche.</p>
+                    <p class="service-description">Gründliche Handwäsche, Felgenreinigung und professionelle Anti-Moskitowäsche.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-car-sparkles"></i></div>
+                    <div class="service-icon"><i class="fa-solid fa-car"></i></div>
                     <h3 class="service-name">Innenreinigung</h3>
-                    <p class="service-description">Komplette Innenreinigung inklusive Staubsaugen und Teppichwäsche für максимальную свежесть.</p>
+                    <p class="service-description">Komplette Innenreinigung inklusive Staubsaugen und Teppichwäsche для идеальной чистоты.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div class="service-icon"><i class="fa-solid fa-wand-sparkles"></i></div>
                     <h3 class="service-name">Politur & Lack</h3>
-                    <p class="service-description">Entfernung von kleinen Kratzern и профессиональная полировка для идеального блеска.</p>
+                    <p class="service-description">Entfernung von kleinen Kratzern und professionelle Hochglanz-Politur.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-car-shield"></i></div>
+                    <div class="service-icon"><i class="fa-solid fa-shield-car"></i></div>
                     <h3 class="service-name">Desinfektion</h3>
-                    <p class="service-description">Полная дезинфекция салона для вашей гигиены и безопасности.</p>
+                    <p class="service-description">Komplette Innenraum-Desinfektion für Ihre Hygiene und Sicherheit.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-car-droplet"></i></div>
+                    <div class="service-icon"><i class="fa-solid fa-cloud-showers-water"></i></div>
                     <h3 class="service-name">Regenschutz</h3>
-                    <p class="service-description">Специальная герметизация окон и защита от дождя для безопасной езды.</p>
+                    <p class="service-description">Spezielle Scheibenversiegelung für bessere Sicht bei Regen.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-bottle-droplet"></i></div>
+                    <div class="service-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
                     <h3 class="service-name">Pflegemittel</h3>
-                    <p class="service-description">Продажа высококачественных средств для самостоятельного ухода за автомобилем.</p>
+                    <p class="service-description">Verkauf von hochwertigen Produkten für die Pflege Ihres Fahrzeugs.</p>
                 </div>
 
             </div>
