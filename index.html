@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A1 Auto Wasch</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        /* Весь CSS теперь строго внутри одного блока STYLE */
         body {
             margin: 0;
             padding: 0;
@@ -25,7 +26,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px;
-            background: rgba(255, 255, 255, 0.85); /* Полупрозрачный фон */
+            background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
@@ -38,7 +39,7 @@
         }
 
         .logo-img {
-            max-height: 55px; /* Оптимальный размер логотипа */
+            max-height: 55px;
             width: auto;
             margin-right: 15px;
         }
@@ -53,6 +54,7 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
         }
 
         .nav-links a {
@@ -62,6 +64,14 @@
             font-weight: 600;
             font-size: 16px;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Стиль для иконки часиков */
+        .nav-links a i {
+            margin-right: 8px; /* Отступ между иконкой и текстом */
+            font-size: 18px;
         }
 
         .nav-links a:hover {
@@ -80,7 +90,7 @@
         <nav class="nav-links">
             <a href="#">Startseite</a>
             <a href="#">Dienstleistungen</a>
-            <a href="#">Erfahrung</a>
+            <a href="#"><i class="fa-regular fa-clock"></i>Öffnungszeiten</a>
             <a href="#">Termin buchen</a>
             <a href="#">Kontakt</a>
         </nav>
