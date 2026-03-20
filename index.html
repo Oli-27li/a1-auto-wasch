@@ -19,7 +19,7 @@
             background-size: cover;
             min-height: 100vh;
             background-color: #ffffff;
-            scroll-behavior: smooth; /* Плавная прокрутка! */
+            scroll-behavior: smooth;
         }
 
         .navbar {
@@ -49,21 +49,24 @@
         /* --- Сетка Пакетов (Pricing Grid) --- */
         .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Чуть увеличили минимальную ширину */
             gap: 30px;
             margin-bottom: 60px;
+            align-items: stretch; /* Важно: все карточки одной высоты */
         }
 
+        /* НАСТРОЙКИ КАРТОЧЕК (ОБНОВЛЕНО) */
         .package-card {
             background: white;
-            padding: 40px 25px;
+            padding: 40px 30px; /* Увеличили отступы по бокам */
             border-radius: 25px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.07);
             transition: 0.4s;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            display: flex; /* Flexbox для карточки */
+            flex-direction: column; /* Элементы в колонку */
+            justify-content: space-between; /* Распределить контент */
+            height: 100%; /* Занять всю доступную высоту */
+            box-sizing: border-box; /* Учитывать padding */
         }
 
         .package-card:hover { transform: translateY(-15px); box-shadow: 0 15px 50px rgba(0, 145, 213, 0.1); }
@@ -71,17 +74,17 @@
         .package-name { color: #0091D5; font-size: 24px; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; }
         .package-price { color: #0091D5; font-size: 48px; font-weight: bold; margin-bottom: 25px; }
         .package-price span { font-size: 20px; font-weight: normal; color: #555; }
-        .package-details { text-align: left; list-style: none; padding: 0; margin-bottom: 30px; color: #444; }
-        .package-details li { margin-bottom: 12px; padding-left: 25px; position: relative; line-height: 1.5; }
-        .package-details li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: #0091D5; position: absolute; left: 0; }
+        .package-details { text-align: left; list-style: none; padding: 0; margin-bottom: 40px; color: #444; flex-grow: 1; } /* Увеличили margin-bottom */
+        .package-details li { margin-bottom: 15px; padding-left: 30px; position: relative; line-height: 1.6; } /* Увеличили padding и margin */
+        .package-details li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: #0091D5; position: absolute; left: 0; top: 2px;}
 
-        /* --- Кнопка ЗАБРОНИРОВАТЬ (Termin buchen) --- */
+        /* --- Кнопка ЗАБРОНИРОВАТЬ (Termin buchen) (ОБНОВЛЕНО) --- */
         .btn-book {
             background-color: #0091D5;
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
+            padding: 18px 30px; /* Увеличили padding для лучшего вида */
+            border-radius: 12px;
             font-size: 18px;
             font-weight: bold;
             text-transform: uppercase;
@@ -89,8 +92,9 @@
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
-            width: 100%;
-            margin-top: 20px;
+            width: 100%; /* Занимает всю ширину карточки */
+            align-self: flex-end; /* Выровнять по нижнему краю (внутри justify-content: space-between) */
+            margin-top: auto; /* ВАЖНО: прижать к низу */
         }
 
         .btn-book:hover { background-color: #005a87; }
@@ -185,7 +189,7 @@
                         <ul class="package-details">
                             <li>Intensiv Innenraumreinigung</li>
                             <li>Außenwäsche: Scheibenreinigung</li>
-                            <li>Innenraum (Teppich, Sitzpolster, Kofferraum + mit Dampf Extraktionsgerät reinigen)</li>
+                            <li>Innenraum (Teppich, Sitzpolster, Kofferraum + Dampf Extraktionsgerät reinigen)</li>
                             <li>Armaturenbrett, Türverkleidungen, Fußmatten, Türrahmen</li>
                         </ul>
                     </div>
@@ -211,7 +215,7 @@
                         <ul class="package-details">
                             <li>Kompl. Aufbereitung</li>
                             <li>Außenwäsche, Intensiv Innenraumreinigung</li>
-                            <li>(Teppich, Sitzpolster, Kofferraum + mit Dampf Extraktionsgerät reinigen)</li>
+                            <li>(Teppich, Sitzpolster, Kofferraum + Dampf Extraktionsgerät reinigen)</li>
                             <li>Flugrost, maschinelle 2 Gang Hochglanz-Lackpolitur</li>
                         </ul>
                     </div>
@@ -225,7 +229,7 @@
                             <li>Außenwäsche, Intensiv Innenraumreinigung</li>
                             <li>Lackkneten, maschinelle 2 Gang Hochglanz-Lackpolitur</li>
                             <li>Nano/Keramik Versiegelung</li>
-                            <li>Der Langzeit-Lackschutz gegen Witterungseinflüsse</li>
+                            <li>Der Langzeit-Lackschutz против Witterungseinflüsse</li>
                         </ul>
                     </div>
                     <a href="#booking" class="btn-book">Termin buchen</a> </div>
@@ -279,8 +283,8 @@
     <section id="booking" style="padding: 100px 20px; text-align: center; background-color: white;">
         <div class="container">
             <h2 class="section-title">Termin buchen</h2>
-            <p class="section-subtitle">Hier werden мы создадим форму для записи или добавим контакты для бронирования.</p>
-            </div>
+            <p class="section-subtitle">Hier мы создадим форму для записи или добавим контакты для бронирования.</p>
+        </div>
     </section>
 
 </body>
