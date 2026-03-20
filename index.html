@@ -19,7 +19,7 @@
             background-size: cover;
             min-height: 100vh;
             background-color: #ffffff;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Плавная прокрутка! */
         }
 
         .navbar {
@@ -49,16 +49,16 @@
         /* --- Сетка Пакетов (Pricing Grid) --- */
         .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Чуть увеличили минимальную ширину */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 60px;
-            align-items: stretch; /* Важно: все карточки одной высоты */
+            align-items: stretch; /* Все карточки одной высоты */
         }
 
-        /* НАСТРОЙКИ КАРТОЧЕК (ОБНОВЛЕНО) */
+        /* НАСТРОЙКИ КАРТОЧЕК */
         .package-card {
             background: white;
-            padding: 40px 30px; /* Увеличили отступы по бокам */
+            padding: 40px 30px;
             border-radius: 25px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.07);
             transition: 0.4s;
@@ -67,6 +67,7 @@
             justify-content: space-between; /* Распределить контент */
             height: 100%; /* Занять всю доступную высоту */
             box-sizing: border-box; /* Учитывать padding */
+            text-align: center; /* Центрировать текст в карточке */
         }
 
         .package-card:hover { transform: translateY(-15px); box-shadow: 0 15px 50px rgba(0, 145, 213, 0.1); }
@@ -74,16 +75,16 @@
         .package-name { color: #0091D5; font-size: 24px; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; }
         .package-price { color: #0091D5; font-size: 48px; font-weight: bold; margin-bottom: 25px; }
         .package-price span { font-size: 20px; font-weight: normal; color: #555; }
-        .package-details { text-align: left; list-style: none; padding: 0; margin-bottom: 40px; color: #444; flex-grow: 1; } /* Увеличили margin-bottom */
-        .package-details li { margin-bottom: 15px; padding-left: 30px; position: relative; line-height: 1.6; } /* Увеличили padding и margin */
+        .package-details { text-align: left; list-style: none; padding: 0; margin-bottom: 40px; color: #444; flex-grow: 1; }
+        .package-details li { margin-bottom: 15px; padding-left: 30px; position: relative; line-height: 1.6; }
         .package-details li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: #0091D5; position: absolute; left: 0; top: 2px;}
 
-        /* --- Кнопка ЗАБРОНИРОВАТЬ (Termin buchen) (ОБНОВЛЕНО) --- */
+        /* --- Кнопка ЗАБРОНИРОВАТЬ (Termin buchen) (ИСПРАВЛЕНО!) --- */
         .btn-book {
             background-color: #0091D5;
             color: white;
             border: none;
-            padding: 18px 30px; /* Увеличили padding для лучшего вида */
+            padding: 18px 30px;
             border-radius: 12px;
             font-size: 18px;
             font-weight: bold;
@@ -91,10 +92,11 @@
             cursor: pointer;
             transition: 0.3s;
             text-decoration: none;
-            display: inline-block;
-            width: 100%; /* Занимает всю ширину карточки */
-            align-self: flex-end; /* Выровнять по нижнему краю (внутри justify-content: space-between) */
-            margin-top: auto; /* ВАЖНО: прижать к низу */
+            display: inline-block; /* Для горизонтального центрирования */
+            max-width: 250px; /* Ограничим максимальную ширину кнопки */
+            width: 100%; /* Но пусть стремится к максимуму */
+            margin: auto auto 0 auto; /* ИСПРАВЛЕНИЕ: центрирование по горизонтали и прижатие к низу */
+            text-align: center; /* Центрировать текст внутри кнопки */
         }
 
         .btn-book:hover { background-color: #005a87; }
@@ -165,7 +167,8 @@
                             <li>Innenraumreinigung</li>
                         </ul>
                     </div>
-                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a>
+                </div>
 
                 <div class="package-card">
                     <div>
@@ -179,7 +182,8 @@
                             <li>maschinelle 1 Gang Hochglanz-Lackpolitur</li>
                         </ul>
                     </div>
-                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a>
+                </div>
 
                 <div class="package-card">
                     <div>
@@ -190,10 +194,11 @@
                             <li>Intensiv Innenraumreinigung</li>
                             <li>Außenwäsche: Scheibenreinigung</li>
                             <li>Innenraum (Teppich, Sitzpolster, Kofferraum + Dampf Extraktionsgerät reinigen)</li>
-                            <li>Armaturenbrett, Türverkleidungen, Fußmatten, Türrahmen</li>
+                            <li>Armaturenbrett, Türverклеdungen, Fußmatten, Türrahmen</li>
                         </ul>
                     </div>
-                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a>
+                </div>
 
                  <div class="package-card">
                     <div>
@@ -206,7 +211,8 @@
                             <li>Flugrost, maschinelle 2 Gang Hochglanz-Lackpolitur</li>
                         </ul>
                     </div>
-                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a>
+                </div>
 
                 <div class="package-card">
                     <div>
@@ -219,7 +225,8 @@
                             <li>Flugrost, maschinelle 2 Gang Hochglanz-Lackpolitur</li>
                         </ul>
                     </div>
-                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a>
+                </div>
 
                 <div class="package-card">
                     <div>
@@ -232,7 +239,8 @@
                             <li>Der Langzeit-Lackschutz против Witterungseinflüsse</li>
                         </ul>
                     </div>
-                    <a href="#booking" class="btn-book">Termin buchen</a> </div>
+                    <a href="#booking" class="btn-book">Termin buchen</a>
+                </div>
 
             </div>
         </div>
