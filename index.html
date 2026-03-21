@@ -203,7 +203,7 @@
         .extras-table th { background-color: #0091D5; color: white; text-transform: uppercase; }
         .extras-price { color: #0091D5; font-weight: bold; text-align: right; }
 
-        /* ГРАФИК РАБОТЫ ПОД ОБЩИЙ СТИЛЬ */
+        /* ГРАФИК РАБОТЫ */
         .opening-section {
             padding: 80px 20px;
             text-align: center;
@@ -240,7 +240,19 @@
         }
         .day-closed { color: #f44336; font-weight: 700; }
 
-        .booking-section, .contact-section { padding: 80px 20px; text-align: center; background-color: white; border-top: 1px solid #eee; }
+        /* --- BOOKING STYLES --- */
+        .booking-section { padding: 80px 20px; text-align: center; background-color: white; border-top: 1px solid #eee; }
+        .booking-container { max-width: 600px; margin: 0 auto; background: #f9f9f9; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .date-input { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid #0091D5; font-size: 16px; margin-bottom: 20px; outline: none; box-sizing: border-box; }
+        .time-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+        .time-slot { padding: 12px; background: white; border: 2px solid #0091D5; color: #0091D5; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .time-slot:hover { background: #0091D5; color: white; }
+        .time-slot.selected { background: #005a87; color: white; border-color: #005a87; }
+        .booking-form { margin-top: 30px; text-align: left; }
+        .booking-form input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        .btn-confirm { width: 100%; background: #0091D5; color: white; border: none; padding: 15px; border-radius: 10px; font-weight: bold; text-transform: uppercase; cursor: pointer; }
+
+        .contact-section { padding: 80px 20px; text-align: center; background-color: white; border-top: 1px solid #eee; }
         .contact-box { font-size: 20px; color: #333; margin-top: 20px; line-height: 1.8; }
         .contact-box i { color: #0091D5; margin-right: 10px; }
     </style>
@@ -268,16 +280,16 @@
             <p style="max-width: 850px; margin: 0 auto; font-size: 19px; line-height: 1.8; color: #444;">
                 <strong>ERSTKLASSIGE FAHRZEUGPFLEGE IN SAARBRÜCKEN.</strong><br><br>
                 Perfektion im Detail. Qualität im Fokus.
-Ihr professioneller Partner für eine Fahrzeugaufbereitung, die neue Maßstäbe setzt. Unser Anspruch ist es, jedem Fahrzeug zu neuem Glanz zu verhelfen – mit tiefer Liebe zum Detail, dem Einsatz modernster Technik und einem kompromisslosen Qualitätsanspruch.
-Was uns auszeichnet, ist die Leidenschaft für das Handwerk. Wir bieten weit mehr als nur eine Reinigung: Wir werten Fahrzeuge sichtbar auf und verbessern ihr Erscheinungsbild nachhaltig. Dabei arbeiten wir strukturiert, mit den richtigen Techniken und einem hohen Anspruch an Genauigkeit – fernab von schnellen Lösungen oder oberflächlicher Arbeit.
-Jedes Fahrzeug erhält genau die Pflege, die es benötigt, individuell abgestimmt auf seinen Zustand und Ihre Anforderungen. Wir verbinden Fachwissen mit echtem Stolz auf unsere Arbeit, denn Qualität ist für uns kein Versprechen, sondern die Basis jedes Handgriffs.
+                Ihr professioneller Partner für eine Fahrzeugaufbereitung, die neue Maßstäbe setzt. Unser Anspruch ist es, jedem Fahrzeug zu neuem Glanz zu verhelfen – mit tiefer Liebe zum Detail, dem Einsatz modernster Technik und einem komпромиссlosen Qualitätsanspruch.
+                Was uns auszeichnet, ist die Leidenschaft für das Handwerk. Wir bieten weit mehr als nur eine Reinigung: Wir werten Fahrzeuge sichtbar auf und verbessern ihr Erscheinungsbild nachhaltig. Dabei arbeiten wir strukturiert, mit den richtigen Techniken und einem hohen Anspruch an Genauigkeit – fernab von schnellen Lösungen oder oberflächlicher Arbeit.
+                Jedes Fahrzeug erhält genau die Pflege, die es benötigt, individuell abgestimmt auf seinen Zustand und Ihre Anforderungen. Wir verbinden Fachwissen mit echtem Stolз auf unsere Arbeit, denn Qualität ist für uns kein Versprechen, sondern die Basis jedes Handgriffs.
             </p>
         </div>
     </section>
 
     <section id="services" class="services-section">
         <div class="container">
-            <h2 class="section-title">Unsere Pflegepakete</h2>
+            <h2 class="section-title">Unsere Pflegepakете</h2>
             <div class="packages-grid">
                 <div class="package-card">
                     <div><h3 class="package-name">Pflegepaket 1</h3><div class="package-price">75€<span> / ab</span></div>
@@ -362,7 +374,25 @@ Jedes Fahrzeug erhält genau die Pflege, die es benötigt, individuell abgestimm
     </section>
 
     <section id="booking" class="booking-section">
-        <div class="container"><h2 class="section-title">Termin buchen</h2><p>Formular wird geladen...</p></div>
+        <div class="container">
+            <h2 class="section-title">Termin buchen</h2>
+            <div class="booking-container">
+                <p>Wählen Sie ein Datum (ab 01.04.2026):</p>
+                <input type="date" id="datePicker" class="date-input" min="2026-04-01">
+                
+                <div id="slotsContainer" style="display:none;">
+                    <p>Verfügbare Uhrzeiten:</p>
+                    <div class="time-slots" id="timeSlots"></div>
+                </div>
+
+                <div class="booking-form" id="bookingForm" style="display:none;">
+                    <input type="text" id="userName" placeholder="Ihr Name" required>
+                    <input type="tel" id="userPhone" placeholder="Telefonnummer" required>
+                    <button class="btn-confirm" onclick="sendBooking()">Termin verbindlich anfragen</button>
+                    <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: center;">Nach der Anfrage erhalten Sie eine Bestätigung.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer id="contact" class="contact-section">
@@ -373,7 +403,59 @@ Jedes Fahrzeug erhält genau die Pflege, die es benötigt, individuell abgestimm
         </div></div>
     </footer>
 
+    <script>
+        const datePicker = document.getElementById('datePicker');
+        const slotsContainer = document.getElementById('slotsContainer');
+        const timeSlots = document.getElementById('timeSlots');
+        const bookingForm = document.getElementById('bookingForm');
+        let selectedTime = '';
+
+        datePicker.addEventListener('change', function() {
+            const date = new Date(this.value);
+            const day = date.getDay();
+            
+            timeSlots.innerHTML = '';
+            if (day === 0) { // Sonntag
+                timeSlots.innerHTML = '<p style="color: #f44336; font-weight: bold; grid-column: 1/-1;">Sonntag geschlossen.</p>';
+                bookingForm.style.display = 'none';
+            } else {
+                // Часовые слоты 9-12 и 13-18
+                const slots = ['09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+                slots.forEach(time => {
+                    const btn = document.createElement('div');
+                    btn.className = 'time-slot';
+                    btn.innerText = time;
+                    btn.onclick = () => {
+                        document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                        btn.classList.add('selected');
+                        selectedTime = time;
+                        bookingForm.style.display = 'block';
+                    };
+                    timeSlots.appendChild(btn);
+                });
+            }
+            slotsContainer.style.display = 'block';
+        });
+
+        function sendBooking() {
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const date = datePicker.value;
+
+            if(!name || !phone || !selectedTime) {
+                alert("Bitte füllen Sie alle Felder aus и wählen Sie eine Uhrzeit.");
+                return;
+            }
+
+            const emailTo = "gudyma_olia@icloud.com";
+            const subject = encodeURIComponent(`Neue Terminanfrage: ${date}`);
+            const body = encodeURIComponent(`Neue Buchungsanfrage erhalten:\n\nDatum: ${date}\nUhrzeit: ${selectedTime}\nKunde: ${name}\nTelefon: ${phone}`);
+
+            window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+            
+            alert("Vielen Dank! Ihre Anfrage wird nun über Ihre Mail-App gesendet.");
+        }
+    </script>
+
 </body>
 </html>
-
-
