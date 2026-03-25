@@ -626,25 +626,28 @@
     <section id="booking" class="booking-section">
         <div class="container">
             <h2 class="section-title">Termin buchen</h2>
-            <div class="booking-container">
-                <p>Wählen Sie ein Datum (ab 01.04.2026):</p>
-                <input type="date" id="datePicker" class="date-input" min="2026-04-01">
+          <div class="booking-container">
+    <form action="https://formspree.io/f/xaqlywyk" method="POST">
+        <input type="hidden" name="Service-Details" id="service_info">
+        <input type="hidden" name="Uhrzeit" id="selectedTimeInput" required>
 
-                <div id="slotsContainer" style="display:none;">
-                    <p>Verfügbare Uhrzeiten:</p>
-                    <div class="time-slots" id="timeSlots"></div>
-                </div>
+        <p>Wählen Sie ein Datum (ab 01.04.2026):</p>
+        <input type="date" name="Datum" id="datePicker" class="date-input" required>
 
-                <div class="booking-form" id="bookingForm" style="display:none;">
-                    <input type="text" id="userName" placeholder="Ihr Name" required>
-                    <input type="tel" id="userPhone" placeholder="Telefonnummer" required>
-                    <button class="btn-confirm" onclick="sendBooking()">Termin reservieren</button>
-                    <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: center;">Nach der Anfrage erhalten Sie eine Bestätigung.</p>
-                </div>
-            </div>
+        <div id="slotsContainer" style="display:none;">
+            <p>Verfügbare Uhrzeiten:</p>
+            <div class="time-slots" id="timeSlots"></div>
         </div>
-    </section>
 
+        <div class="user-details" style="margin-top: 20px;">
+            <input type="text" name="Name" placeholder="Ihr Name" required style="width: 100%; margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <input type="tel" name="Telefon" placeholder="Ihre Telefonnummer" required style="width: 100%; margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+
+        <button type="submit" class="btn-book" style="width: 100%; padding: 15px; background-color: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer;">Termin verbindlich buchen</button>
+    </form>
+</div>
+            
     <footer id="contact" style="padding: 80px 20px; background: #2c2c34; color: white; text-align: center;">
         <div class="container">
             <h2 style="color: #0091D5; font-size: 28px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px;">A1 AUTO WASCH SAARBRÜCKEN</h2>
@@ -755,12 +758,24 @@ function closeExtras() {
 }
 function confirmAndBook() {
     let selectedExtras = [];
-    document.querySelectorAll('.extra-checkbox:checked').forEach(item => {
+    document.querySelectorAll('.extra-checkbox:checked').forEach((item) => {
         selectedExtras.push(item.value);
     });
-    // Здесь мы просто закрываем окно и ведем к календарю
+
+    const packageInfo = window.selectedPackage || "Kein Paket";
+    const extrasInfo = selectedExtras.length > 0 ? selectedExtras.join(", ") : "Keine Extras";
+
+    // Сохраняем данные в скрытое поле для Formspree
+    const hiddenInput = document.getElementById('service_info');
+    if (hiddenInput) {
+        hiddenInput.value = "Ausgewählt: " + packageInfo + " | Extras: " + extrasInfo;
+    }
+
     closeExtras();
     window.location.href = "#booking";
+
+    // Уведомление для клиента на немецком
+    alert("Paket ausgewählt! Bitte wählen Sie jetzt ein Datum und eine Uhrzeit im Kalender aus.");
 }
     </script>
     <div class="modal-overlay" id="extrasModal">
