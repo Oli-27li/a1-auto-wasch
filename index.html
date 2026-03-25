@@ -111,7 +111,50 @@
         }
         .nav-links a:hover { color: #005a87; }
         .nav-links a i { margin-right: 8px; }
+.hero-banner {
+    height: 100vh !important;
+    background-image: url('https://github.com/Oli-27li/a1-auto-wasch/blob/main/hero-white-car.jpg?raw=true') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: -85px !important;
+}
 
+.hero-text-box {
+    background: rgba(255, 255, 255, 0.7) !important; /* Светлый фон */
+    backdrop-filter: blur(10px) !important;
+    padding: 40px 60px !important;
+    border-radius: 30px !important;
+    text-align: center !important;
+}
+
+.hero-text-box h1 {
+    color: #0091D5 !important; /* Голубой заголовок */
+    font-size: clamp(24px, 5vw, 50px) !important;
+    text-transform: uppercase !important;
+    margin: 0 0 10px 0 !important;
+}
+
+.hero-text-box p {
+    color: #0091D5 !important; /* Голубой подзаголовок */
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin-bottom: 30px !important;
+}
+
+.btn-hero {
+    display: inline-block !important;
+    padding: 15px 45px !important;
+    background-color: #0091D5 !important; /* Синяя кнопка */
+    color: #ffffff !important;           /* Белый текст внутри */
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+}
         .about-section { padding: 80px 20px; background-color: rgba(0, 145, 213, 0.05); text-align: center; }
         .services-section { padding: 80px 20px; background-color: rgba(255, 255, 255, 0.85); text-align: center; }
 
@@ -343,6 +386,17 @@
             <a href="#contact">Kontakt</a>
         </nav>
     </header>
+    </header>
+
+    <section class="hero-banner">
+        <div class="hero-text-box">
+            <h1>PREMIUM PFLEGE & AUTO ELEKTRONIK</h1>
+            <p>Fahrzeugaufbereitung • Steuergeräte • Autoschlüssel</p>
+            <a href="#contact" class="btn-hero">Kontakt</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
 
     <section id="about" class="about-section">
         <div class="container">
