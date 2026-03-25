@@ -3,86 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A1 Auto Wasch - Pflegepakete & Preise</title>
+    <title>A1 Auto Wasch - Premium Fahrzeugpflege & Service</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* БАЗОВЫЕ СТИЛИ */
-        body {
+        /* ========================================
+           1. ОСНОВНЫЕ СТИЛИ (ГЛОБАЛЬНЫЕ)
+           ========================================
+        */
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
             background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/bubbles-bg.jpg');
             background-repeat: no-repeat;
             background-position: center bottom;
             background-attachment: fixed;
             background-size: cover;
             min-height: 100vh;
-            background-color: #ffffff;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* НАВИГАЦИЯ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* ========================================
+           2. ШАПКА И НАВИГАЦИЯ
+           ========================================
+        */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px;
+            padding: 20px 40px;
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 9999;
+            transition: all 0.3s ease;
         }
 
-        .header-left { display: flex; align-items: center; }
-        .logo-img { max-height: 55px; width: auto; margin-right: 15px; }
-        .brand-name { color: #0091D5; font-size: 24px; font-weight: bold; text-transform: uppercase; }
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
 
-        .nav-links { display: flex; align-items: center; }
+        .logo-img {
+            max-height: 60px;
+            width: auto;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-name {
+            color: #0091D5;
+            font-size: 26px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: #0091D5;
-            margin-left: 25px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
+            margin-left: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
         }
-        .nav-links a i { margin-right: 8px; }
-        .nav-links a:hover { color: #005a87; }
 
-        /* МОБИЛЬНОЕ МЕНЮ */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #0091D5;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Бургер-меню */
         .menu-icon {
             display: none;
-            font-size: 28px;
+            font-size: 30px;
             color: #0091D5;
             cursor: pointer;
         }
 
         @media (max-width: 1024px) {
-            .menu-icon { display: block; }
+            .navbar {
+                padding: 15px 25px;
+            }
+            .menu-icon {
+                display: block;
+            }
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px;
+                top: 80px;
                 left: 0;
                 width: 100%;
                 background: white;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                padding: 20px 0;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                padding: 30px 0;
             }
-            .nav-links.active { display: flex; }
-            .nav-links a { margin: 15px 0; width: 100%; text-align: center; margin-left: 0; font-size: 18px; }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a {
+                margin: 20px 0;
+                width: 100%;
+                text-align: center;
+                margin-left: 0;
+                font-size: 20px;
+            }
         }
 
-        /* ГЛАВНЫЙ БАННЕР */
+        /* ========================================
+           3. ГЕРОЙ-БАННЕР
+           ========================================
+        */
         .hero-banner {
-            height: 80vh;
-            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg');
+            height: 85vh;
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)),
+                              url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -91,288 +167,945 @@
             align-items: center;
             text-align: center;
             color: white;
-            border-bottom: 5px solid #0091D5;
+            border-bottom: 8px solid #0091D5;
         }
 
         .hero-text-box {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(8px);
-            padding: 40px 60px;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 50px 80px;
+            border-radius: 40px;
+            border: 1px solid rgba(255,255,255,0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .hero-text-box h1 { font-size: clamp(35px, 6vw, 65px); margin: 0; text-transform: uppercase; letter-spacing: 3px; text-shadow: 2px 2px 15px rgba(0,0,0,0.5); }
-        .hero-text-box p { font-size: 20px; letter-spacing: 4px; margin-top: 10px; font-weight: 300; text-transform: uppercase; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        /* ОБЩИЕ СЕКЦИИ */
-        .container { max-width: 1200px; margin: 0 auto; position: relative; }
-        .section-title { color: #0091D5; font-size: clamp(28px, 6vw, 40px); margin-bottom: 40px; text-transform: uppercase; text-align: center; }
+        .hero-text-box h1 {
+            font-size: clamp(40px, 8vw, 75px);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 900;
+            text-shadow: 3px 3px 20px rgba(0,0,0,0.6);
+        }
 
-        /* КАРТОЧКИ ПАКЕТОВ */
-        .services-section { padding: 80px 20px; background-color: rgba(255, 255, 255, 0.85); }
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
-        .package-card { background: white; padding: 40px 30px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.07); transition: 0.4s; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-        .package-card:hover { transform: translateY(-10px); box-shadow: 0 15px 50px rgba(0, 145, 213, 0.1); }
+        .hero-text-box p {
+            font-size: 22px;
+            letter-spacing: 6px;
+            margin-top: 20px;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: #eee;
+        }
 
-        .package-name { color: #0091D5; font-size: 24px; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; text-align: center; }
-        .package-price { color: #0091D5; font-size: 48px; font-weight: bold; margin-bottom: 25px; text-align: center; }
-        .package-price span { font-size: 20px; font-weight: normal; color: #555; }
+        /* ========================================
+           4. СЕКЦИЯ "О НАС"
+           ========================================
+        */
+        .about-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: rgba(255,255,255,0.9);
+        }
 
-        .package-details { list-style: none; padding: 0; margin-bottom: 40px; flex-grow: 1; }
-        .package-details li { margin-bottom: 12px; padding-left: 30px; position: relative; line-height: 1.4; font-size: 15px; color: #444; }
-        .package-details li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: #0091D5; position: absolute; left: 0; top: 2px; }
+        .section-title {
+            color: #0091D5;
+            font-size: clamp(32px, 5vw, 45px);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
 
-        .btn-book { background-color: #0091D5; color: white; border: none; padding: 18px; border-radius: 12px; font-size: 18px; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: 0.3s; text-decoration: none; display: block; text-align: center; }
-        .btn-book:hover { background-color: #005a87; }
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #0091D5;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-        /* ПОДАРОЧНЫЙ БЛОК */
-        .gift-badge-css { position: absolute; top: -100px; right: -20px; width: 150px; text-decoration: none; z-index: 100; }
-        .gift-top-text-arc { display: block; font-size: 11px; font-weight: 900; color: #f44336; text-transform: uppercase; margin-bottom: 35px; text-align: center; }
-        .gift-box-css { width: 110px; height: 110px; background: #add8e6; margin: 0 auto; border-radius: 12px; position: relative; border: 2px solid white; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-        .gift-ribbon-css { position: absolute; width: 22px; height: 100%; background: #f44336; }
-        .gift-inner-text-css { position: relative; z-index: 25; color: white; font-weight: bold; font-size: 13px; text-align: center; text-transform: uppercase; }
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #444;
+        }
 
-        /* EXTRAS ТАБЛИЦА */
-        .extras-section { padding: 60px 20px; text-align: center; }
-        .extras-table { width: 100%; max-width: 900px; margin: 0 auto; border-collapse: collapse; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .extras-table th, .extras-table td { padding: 20px 30px; border-bottom: 1px solid #eee; text-align: left; }
-        .extras-table th { background: #0091D5; color: white; text-transform: uppercase; }
-        .extras-price { color: #0091D5; font-weight: bold; text-align: right; }
+        .about-highlight {
+            color: #0091D5;
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 30px;
+            display: block;
+        }
 
-        /* ГРАФИК РАБОТЫ */
-        .opening-section { padding: 80px 20px; text-align: center; background: #fdfdfd; }
-        .opening-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 40px; }
-        .opening-day { background: white; padding: 25px 20px; border-radius: 15px; min-width: 140px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-bottom: 4px solid #0091D5; }
-        .day-name { font-weight: bold; color: #333; text-transform: uppercase; display: block; margin-bottom: 10px; }
-        .day-time { color: #0091D5; font-weight: 700; }
+        /* ========================================
+           5. АВТОСЕРВИС (ELECTRONIC SERVICE)
+           ========================================
+        */
+        .service-electronics {
+            padding: 120px 20px;
+            background: #1a1a1d;
+            color: white;
+            position: relative;
+        }
 
-        /* БРОНИРОВАНИЕ */
-        .booking-section { padding: 80px 20px; text-align: center; background-color: white; }
-        .booking-container { max-width: 600px; margin: 0 auto; background: #f9f9f9; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .date-input { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid #0091D5; font-size: 16px; margin-bottom: 20px; box-sizing: border-box; }
-        .time-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
-        .time-slot { padding: 12px; background: white; border: 2px solid #0091D5; color: #0091D5; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .time-slot:hover { background: #0091D5; color: white; }
-        .time-slot.selected { background: #005a87; color: white; border-color: #005a87; }
-        .booking-form { margin-top: 30px; text-align: left; }
-        .booking-form input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-        .btn-confirm { width: 100%; background: #0091D5; color: white; border: none; padding: 15px; border-radius: 10px; font-weight: bold; text-transform: uppercase; cursor: pointer; }
+        .service-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
 
-        /* ФУТЕР */
-        footer { padding: 80px 20px; background: #2c2c34; color: white; text-align: center; }
-        footer h2 { color: #0091D5; margin-bottom: 40px; }
-        .footer-info { display: flex; flex-direction: column; gap: 20px; font-size: 18px; align-items: center; }
-        .footer-info p { margin: 0; display: flex; align-items: center; gap: 15px; }
-        .footer-info i { color: #0091D5; font-size: 24px; }
+        .service-header h2 {
+            color: #f44336;
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .service-header p {
+            font-size: 20px;
+            color: #aaa;
+            letter-spacing: 2px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+        }
+
+        .service-box {
+            background: rgba(255,255,255,0.03);
+            padding: 50px;
+            border-radius: 30px;
+            border-left: 6px solid #f44336;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.07);
+        }
+
+        .service-box h3 {
+            color: #f44336;
+            font-size: 26px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-list li {
+            margin-bottom: 15px;
+            font-size: 17px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .service-list li i {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        /* ========================================
+           6. ПАКЕТЫ УСЛУГ (CAR WASH PACKAGES)
+           ========================================
+        */
+        .packages-section {
+            padding: 120px 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 50px 35px;
+            border-radius: 30px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            border: 1px solid #f0f0f0;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0, 145, 213, 0.15);
+            border-color: #0091D5;
+        }
+
+        .card-name {
+            color: #0091D5;
+            font-size: 26px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card-price {
+            color: #0091D5;
+            font-size: 52px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .card-price span {
+            font-size: 22px;
+            font-weight: 400;
+            color: #777;
+        }
+
+        .card-info {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 45px;
+            flex-grow: 1;
+        }
+
+        .card-info li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            font-size: 16px;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .card-info li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #0091D5;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 18px;
+        }
+
+        .btn-action {
+            background: linear-gradient(135deg, #0091D5 0%, #005a87 100%);
+            color: white;
+            border: none;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 145, 213, 0.3);
+        }
+
+        .btn-action:hover {
+            background: linear-gradient(135deg, #005a87 0%, #003e5e 100%);
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 145, 213, 0.4);
+        }
+
+        /* Спец-предложение (Badge) */
+        .promo-badge {
+            position: absolute;
+            top: -110px;
+            right: -25px;
+            width: 160px;
+            text-decoration: none;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .promo-badge:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .promo-text-top {
+            display: block;
+            font-size: 12px;
+            font-weight: 900;
+            color: #f44336;
+            text-transform: uppercase;
+            margin-bottom: 38px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .promo-box {
+            width: 120px;
+            height: 120px;
+            background: #add8e6;
+            margin: 0 auto;
+            border-radius: 15px;
+            position: relative;
+            border: 3px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .promo-ribbon {
+            position: absolute;
+            width: 25px;
+            height: 100%;
+            background: #f44336;
+        }
+
+        .promo-inner-text {
+            position: relative;
+            z-index: 25;
+            color: white;
+            font-weight: 800;
+            font-size: 14px;
+            text-align: center;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        /* ========================================
+           7. ТАБЛИЦА EXTRAS
+           ========================================
+        */
+        .extras-section {
+            padding: 100px 20px;
+            background: #f9f9f9;
+        }
+
+        .extras-table-container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .extras-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .extras-table th {
+            background: #0091D5;
+            color: white;
+            padding: 25px 40px;
+            text-align: left;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .extras-table td {
+            padding: 22px 40px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 17px;
+            color: #444;
+        }
+
+        .extras-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .extras-table tr:hover {
+            background-color: #fcfcfc;
+        }
+
+        .price-tag {
+            color: #0091D5;
+            font-weight: 800;
+            text-align: right;
+            font-size: 19px;
+        }
+
+        /* ========================================
+           8. ГРАФИК РАБОТЫ (OPENING HOURS)
+           ========================================
+        */
+        .hours-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .hours-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .day-card {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 20px;
+            min-width: 160px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            border-top: 5px solid #0091D5;
+            transition: 0.3s;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5s);
+            box-shadow: 0 10px 25px rgba(0, 145, 213, 0.1);
+        }
+
+        .day-title {
+            font-weight: 800;
+            color: #333;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .day-hours {
+            color: #0091D5;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        /* ========================================
+           9. БРОНИРОВАНИЕ (BOOKING SYSTEM)
+           ========================================
+        */
+        .booking-section {
+            padding: 120px 20px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .booking-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fcfcfc;
+            padding: 50px;
+            border-radius: 35px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #555;
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        .custom-input {
+            width: 100%;
+            padding: 18px;
+            border-radius: 15px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        .custom-input:focus {
+            border-color: #0091D5;
+            box-shadow: 0 0 10px rgba(0, 145, 213, 0.1);
+        }
+
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .slot {
+            padding: 15px;
+            background: #fff;
+            border: 2px solid #0091D5;
+            color: #0091D5;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .slot:hover {
+            background: #0091D5;
+            color: white;
+        }
+
+        .slot.active {
+            background: #005a87;
+            color: white;
+            border-color: #005a87;
+        }
+
+        .form-details {
+            margin-top: 40px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #0091D5;
+            color: white;
+            border: none;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* ========================================
+           10. ФУТЕР (FOOTER)
+           ========================================
+        */
+        .site-footer {
+            padding: 100px 20px 40px;
+            background: #25252b;
+            color: white;
+            text-align: center;
+        }
+
+        .footer-logo h2 {
+            color: #0091D5;
+            font-size: 32px;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .footer-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 20px;
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #0091D5;
+        }
+
+        .contact-item i {
+            font-size: 28px;
+            color: #0091D5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 40px;
+            color: #777;
+            font-size: 15px;
+        }
     </style>
 </head>
 <body>
 
     <header class="navbar">
         <div class="header-left">
-            <img src="https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/image.png" alt="Logo" class="logo-img">
+            <img src="https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/image.png" alt="A1 Auto Wasch Logo" class="logo-img">
             <span class="brand-name">A1 Auto Wasch</span>
         </div>
-        <div class="menu-icon" onclick="toggleMenu()">
+
+        <div class="menu-icon" onclick="toggleMobileMenu()">
             <i class="fas fa-bars"></i>
         </div>
+
         <nav class="nav-links" id="navLinks">
-            <a href="#">Startseite</a>
-            <a href="#about">Über uns</a>
-            <a href="#electronic-service">Auto Service</a>
-            <a href="#services">Dienstleistungen</a>
-            <a href="#opening">Öffnungszeiten</a>
-            <a href="#booking">Termin</a>
+            <a href="#"><i class="fas fa-home"></i> Startseite</a>
+            <a href="#about"><i class="fas fa-info-circle"></i> Über uns</a>
+            <a href="#electronic-service"><i class="fas fa-microchip"></i> Auto Service</a>
+            <a href="#services"><i class="fas fa-car-wash"></i> Preise</a>
+            <a href="#opening"><i class="fas fa-clock"></i> Öffnungszeiten</a>
+            <a href="#booking"><i class="fas fa-calendar-check"></i> Termin</a>
         </nav>
     </header>
 
     <section class="hero-banner">
         <div class="hero-text-box">
             <h1>PREMIUM GLANZ</h1>
-            <p>Fahrzeugaufbereitung der Extraklasse</p>
+            <p>A1 Auto Wasch Saarbrücken</p>
         </div>
     </section>
 
-    <section id="about" style="padding: 80px 20px; text-align: center;">
+    <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title">Über uns</h2>
-            <div style="max-width: 1100px; margin: 0 auto; font-size: 19px; line-height: 1.8; color: #444; text-align: justify;">
-                <p style="text-align: center; font-weight: bold; margin-bottom: 25px;">
-                    ERSTKLASSIGE FAHRZEUGPFLEGE IN SAARBRÜCKEN.<br>
-                    Perfektion im Detail. Qualität im Fokus.
+            <h2 class="section-title">Herzlich Willkommen</h2>
+            <div class="about-content">
+                <span class="about-highlight">ERSTKLASSIGE FAHRZEUGPFLEGE IN SAARBRÜCKEN.</span>
+                <p>
+                    Ваш автомобиль заслуживает лучшего ухода. В A1 Auto Wasch мы объединяем современные технологии мойки с кропотливой ручной работой. Наша цель — не просто чистота, а сохранение ценности вашего автомобиля и придание ему выставочного вида.
                 </p>
-                <p>Ваш профессиональный партнер для тех, кто ценит идеальный блеск своего автомобиля. Мы предлагаем больше, чем просто мойку: мы улучшаем внешний вид вашего транспорта на долгое время.</p>
+                <p style="margin-top: 20px;">
+                    Мы используем только высококачественные химические средства и профессиональное оборудование, чтобы обеспечить идеальный результат без вреда для лакокрасочного покрытия.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="electronic-service" style="padding: 100px 20px; background: #1e1e24; color: white;">
+    <section id="electronic-service" class="service-electronics">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <h2 style="color: #f44336; font-size: 35px; text-transform: uppercase;">A1 AUTO SERVICE</h2>
-                <p style="font-size: 18px; color: #ccc;">Elektronik • Steuergeräte • Autoschlüssel</p>
+            <div class="service-header">
+                <h2>A1 AUTO SERVICE</h2>
+                <p>Spezialisten für Fahrzeugelektronik & Schlüssel</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
-                <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; border-left: 5px solid #f44336;">
-                    <h3 style="color: #f44336;"><i class="fa-solid fa-microchip"></i> STEUERGERÄT</h3>
-                    <ul style="list-style: none; padding: 0; line-height: 1.8;">
-                        <li><i class="fa-solid fa-check" style="color:#f44336; margin-right:10px;"></i> Копирование блоков управления двигателем</li>
-                        <li><i class="fa-solid fa-check" style="color:#f44336; margin-right:10px;"></i> Копирование блоков АКПП</li>
-                        <li><i class="fa-solid fa-check" style="color:#f44336; margin-right:10px;"></i> Решение проблем с DPF, AGR и Adblue</li>
-                        <li><i class="fa-solid fa-check" style="color:#f44336; margin-right:10px;"></i> Адаптация иммобилайзера</li>
+
+            <div class="service-grid">
+                <div class="service-box">
+                    <h3><i class="fa-solid fa-microchip"></i> Steuergeräte-Service</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle" style="color:#f44336"></i> Motorsteuergeräte klonen / kopieren</li>
+                        <li><i class="fas fa-check-circle" style="color:#f44336"></i> Getriebesteuergeräte Optimierung</li>
+                        <li><i class="fas fa-check-circle" style="color:#f44336"></i> Softwarelösungen für DPF, AGR, Adblue</li>
+                        <li><i class="fas fa-check-circle" style="color:#f44336"></i> Airbag-Steuergerät Reparatur</li>
+                        <li><i class="fas fa-check-circle" style="color:#f44336"></i> Wegfahrsperre (Immobilizer) Deaktivierung</li>
                     </ul>
                 </div>
-                <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; border-left: 5px solid #f44336;">
-                    <h3 style="color: #f44336;"><i class="fa-solid fa-key"></i> AUTOSCHLÜSSEL</h3>
-                    <ul style="list-style: none; padding: 0; line-height: 1.8;">
-                        <li><i class="fa-solid fa-circle-dot" style="color:#f44336; margin-right:10px;"></i> Кодирование и привязка</li>
-                        <li><i class="fa-solid fa-circle-dot" style="color:#f44336; margin-right:10px;"></i> Программирование радиоключей</li>
-                        <li><i class="fa-solid fa-circle-dot" style="color:#f44336; margin-right:10px;"></i> Ремонт ELV, EZS, EIS</li>
-                        <li><i class="fa-solid fa-circle-dot" style="color:#f44336; margin-right:10px;"></i> Нарезка лезвий ключей</li>
+
+                <div class="service-box">
+                    <h3><i class="fa-solid fa-key"></i> Autoschlüssel-Service</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-key" style="color:#f44336"></i> Ersatzschlüssel für fast alle Marken</li>
+                        <li><i class="fas fa-key" style="color:#f44336"></i> Programmierung von Funkschlüsseln</li>
+                        <li><i class="fas fa-key" style="color:#f44336"></i> Reparatur defekter Schlüsselgehäuse</li>
+                        <li><i class="fas fa-key" style="color:#f44336"></i> Keyless-Go Schlüssel anlernen</li>
+                        <li><i class="fas fa-key" style="color:#f44336"></i> Fräsen nach Code oder Vorlage</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services-section">
+    <section id="services" class="packages-section">
         <div class="container">
             <h2 class="section-title">Unsere Pflegepakete</h2>
+
             <div class="packages-grid">
-                <div class="package-card">
-                    <div><h3 class="package-name">Pflegepaket 1</h3><div class="package-price">75€<span> / ab</span></div>
-                    <ul class="package-details"><li>Außenwäsche</li><li>Innenraumreinigung</li></ul></div>
-                    <a href="#booking" class="btn-book">Termin buchen</a>
+
+                <div class="card">
+                    <div>
+                        <h3 class="card-name">Pflegepaket 1</h3>
+                        <div class="card-price">75€<span> / ab</span></div>
+                        <ul class="card-info">
+                            <li>Schonende Außenwäsche</li>
+                            <li>Felgenreinigung Basic</li>
+                            <li>Innenraum saugen</li>
+                            <li>Armaturenbrett abwischen</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-action">Jetzt Buchen</a>
                 </div>
-                <div class="package-card">
-                    <div><h3 class="package-name">Pflegepaket 2</h3><div class="package-price">150€<span> / ab</span></div>
-                    <ul class="package-details"><li>Lackaufbereitung</li><li>Außenwäsche & Flugrost</li><li>Innenraumreinigung</li><li>maschinelle 1 Gang Hochglanz-Lackpolitur</li></ul></div>
-                    <a href="#booking" class="btn-book">Termin buchen</a>
+
+                <div class="card">
+                    <div>
+                        <h3 class="card-name">Pflegepaket 2</h3>
+                        <div class="card-price">150€<span> / ab</span></div>
+                        <ul class="card-info">
+                            <li>Inhalte von Paket 1</li>
+                            <li>Flugrostentfernung</li>
+                            <li>Lackreinigung mit Knete</li>
+                            <li>Maschinelle Hochglanz-Politur (1-stufig)</li>
+                            <li>Reifenpflege</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-action">Jetzt Buchen</a>
                 </div>
-                <div class="package-card">
-                    <a href="#contact" class="gift-badge-css">
-                        <span class="gift-top-text-arc">Neueroffnung<br>01.04.2026</span>
-                        <div class="gift-box-css">
-                            <div class="gift-ribbon-css"></div>
-                            <div class="gift-inner-text-css">Knackige 20%<br>bis 01.05.26</div>
+
+                <div class="card">
+                    <a href="#contact" class="promo-badge">
+                        <span class="promo-text-top">Neueroffnung<br>01.04.2026</span>
+                        <div class="promo-box">
+                            <div class="promo-ribbon"></div>
+                            <div class="promo-inner-text">20% RABATT<br>Eröffnungsangebot</div>
                         </div>
                     </a>
-                    <div><h3 class="package-name">Pflegepaket 3</h3><div class="package-price">150€<span> / KL2</span></div>
-                    <div style="color: #555; font-size: 16px; margin-top: -15px; margin-bottom: 10px; text-align:center;">KL3 ab 300€</div>
-                    <ul class="package-details"><li>Intensiv Innenraumreinigung</li><li>Dampf Extraktionsgerät</li><li>Teppich, Sitzpolster, Kofferraum</li></ul></div>
-                    <a href="#booking" class="btn-book">Termin buchen</a>
+
+                    <div>
+                        <h3 class="card-name">Pflegepaket 3</h3>
+                        <div class="card-price">150€<span> / KL2</span></div>
+                        <p style="text-align:center; color:#888; margin-top:-20px; font-weight:bold;">KL3 ab 300€</p>
+                        <ul class="card-info" style="margin-top:20px;">
+                            <li>Intensive Innenraumreinigung</li>
+                            <li>Dampf-Extraktionsverfahren</li>
+                            <li>Polster- & Teppichschamponierung</li>
+                            <li>Himmelreinigung</li>
+                            <li>Geruchsneutralisierung</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-action">Jetzt Buchen</a>
                 </div>
-                <div class="package-card">
-                    <div><h3 class="package-name">Pflegepaket 4</h3><div class="package-price">250€<span> / KL2</span></div>
-                    <div style="color: #555; font-size: 16px; margin-top: -15px; margin-bottom: 10px; text-align:center;">KL3 ab 300€</div>
-                    <ul class="package-details"><li>Lackaufbereitung</li><li>Außen & Innen</li><li>maschinelle 2 Gang Hochglanz-Lackpolitur</li></ul></div>
-                    <a href="#booking" class="btn-book">Termin buchen</a>
+
+                <div class="card">
+                    <div>
+                        <h3 class="card-name">Pflegepaket 4</h3>
+                        <div class="card-price">250€<span> / KL2</span></div>
+                        <p style="text-align:center; color:#888; margin-top:-20px; font-weight:bold;">KL3 ab 300€</p>
+                        <ul class="card-info" style="margin-top:20px;">
+                            <li>Kombination Außen & Innen</li>
+                            <li>Maschinelle 2-Gang Politur</li>
+                            <li>Feine Kratzerentfernung</li>
+                            <li>Wachsversiegelung</li>
+                            <li>Kunststoffpflege Außen</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-action">Jetzt Buchen</a>
                 </div>
-                <div class="package-card">
-                    <div><h3 class="package-name">Pflegepaket 5</h3><div class="package-price">350€<span> / ab</span></div>
-                    <ul class="package-details"><li>Kompl. Aufbereitung</li><li>Intensiv Innenraum (Dampf)</li><li>2 Gang Hochglanz-Lackpolitur</li></ul></div>
-                    <a href="#booking" class="btn-book">Termin buchen</a>
+
+                <div class="card">
+                    <div>
+                        <h3 class="card-name">Pflegepaket 5</h3>
+                        <div class="card-price">350€<span> / ab</span></div>
+                        <ul class="card-info">
+                            <li>Komplette Premium Aufbereitung</li>
+                            <li>Motorraumreinigung</li>
+                            <li>Intensiv-Innenreinigung</li>
+                            <li>3-Stufen Hochglanz-Politur</li>
+                            <li>Scheibenversiegelung</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-action">Jetzt Buchen</a>
                 </div>
-                <div class="package-card">
-                    <div><h3 class="package-name">Pflegepaket 6</h3><div class="package-price">380€<span> / ab</span></div>
-                    <ul class="package-details"><li>2 Gang Hochglanz-Lackpolitur</li><li>Nano/Keramik Versiegelung</li><li>Langzeit-Lackschutz</li></ul></div>
-                    <a href="#booking" class="btn-book">Termin buchen</a>
+
+                <div class="card">
+                    <div>
+                        <h3 class="card-name">Pflegepaket 6</h3>
+                        <div class="card-price">380€<span> / ab</span></div>
+                        <ul class="card-info">
+                            <li>Lackkorrektur Höchststufe</li>
+                            <li>Nano / Keramik Versiegelung</li>
+                            <li>Extremer Abperleffekt (Beading)</li>
+                            <li>UV-Schutz & Langzeitschutz</li>
+                            <li>Inkl. Felgenversiegelung</li>
+                        </ul>
+                    </div>
+                    <a href="#booking" class="btn-action">Jetzt Buchen</a>
                 </div>
+
             </div>
         </div>
     </section>
 
     <section class="extras-section">
         <div class="container">
-            <h2 class="section-title">Extras</h2>
-            <table class="extras-table">
-                <thead><tr><th>Dienstleistung</th><th>Preis</th></tr></thead>
-                <tbody>
-                    <tr><td>Frontscheibenversiegelung</td><td class="extras-price">ab 40€</td></tr>
-                    <tr><td>Sämtl. Fenster & Außenspiegel</td><td class="extras-price">ab 80€</td></tr>
-                    <tr><td>Dachhimmel Shamponieren</td><td class="extras-price">ab 40€</td></tr>
-                    <tr><td>Lederpflege</td><td class="extras-price">ab 50€</td></tr>
-                    <tr><td>Stoffverdeck Pflege + Imprägnierung</td><td class="extras-price">ab 35€</td></tr>
-                    <tr><td>Ozonbehandlung</td><td class="extras-price">ab 35€</td></tr>
-                </tbody>
-            </table>
+            <h2 class="section-title">Zusatzleistungen</h2>
+            <div class="extras-table-container">
+                <table class="extras-table">
+                    <thead>
+                        <tr>
+                            <th>Dienstleistung</th>
+                            <th style="text-align:right;">Preis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Frontscheibenversiegelung (Nano)</td>
+                            <td class="price-tag">ab 40€</td>
+                        </tr>
+                        <tr>
+                            <td>Komplette Glasversiegelung (alle Fenster)</td>
+                            <td class="price-tag">ab 80€</td>
+                        </tr>
+                        <tr>
+                            <td>Dachhimmel Shamponieren & Reinigen</td>
+                            <td class="price-tag">ab 40€</td>
+                        </tr>
+                        <tr>
+                            <td>Lederreinigung & Intensive Pflege</td>
+                            <td class="price-tag">ab 50€</td>
+                        </tr>
+                        <tr>
+                            <td>Cabrio-Stoffverdeck Reinigung & Imprägnierung</td>
+                            <td class="price-tag">ab 35€</td>
+                        </tr>
+                        <tr>
+                            <td>Ozonbehandlung (Geruchsentfernung)</td>
+                            <td class="price-tag">ab 35€</td>
+                        </tr>
+                        <tr>
+                            <td>Tierhaarentfernung (nach Aufwand)</td>
+                            <td class="price-tag">ab 30€</td>
+                        </tr>
+                        <tr>
+                            <td>Scheinwerfer Aufbereitung (Satz)</td>
+                            <td class="price-tag">ab 60€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
-    <section id="opening" class="opening-section">
+    <section id="opening" class="hours-section">
         <div class="container">
-            <h2 class="section-title">Öffnungszeiten</h2>
-            <div class="opening-grid">
-                <div class="opening-day"><span class="day-name">Mo - Sa</span><span class="day-time">09:00 - 18:00</span></div>
-                <div class="opening-day"><span class="day-name">Sonntag</span><span style="color:#f44336; font-weight:bold;">Geschlossen</span></div>
+            <h2 class="section-title">Unsere Öffnungszeiten</h2>
+            <div class="hours-container">
+                <div class="day-card"><span class="day-title">Montag</span><span class="day-hours">09:00 - 18:00</span></div>
+                <div class="day-card"><span class="day-title">Dienstag</span><span class="day-hours">09:00 - 18:00</span></div>
+                <div class="day-card"><span class="day-title">Mittwoch</span><span class="day-hours">09:00 - 18:00</span></div>
+                <div class="day-card"><span class="day-title">Donnerstag</span><span class="day-hours">09:00 - 18:00</span></div>
+                <div class="day-card"><span class="day-title">Freitag</span><span class="day-hours">09:00 - 18:00</span></div>
+                <div class="day-card"><span class="day-title">Samstag</span><span class="day-hours">09:00 - 18:00</span></div>
+                <div class="day-card" style="border-top-color: #f44336;"><span class="day-title">Sonntag</span><span class="day-hours" style="color:#f44336">Geschlossen</span></div>
             </div>
         </div>
     </section>
 
     <section id="booking" class="booking-section">
         <div class="container">
-            <h2 class="section-title">Termin buchen</h2>
-            <div class="booking-container">
-                <input type="date" id="datePicker" class="date-input" min="2026-04-01">
-                <div id="slotsContainer" style="display:none;">
-                    <div class="time-slots" id="timeSlots"></div>
+            <h2 class="section-title">Termin online vereinbaren</h2>
+            <div class="booking-wrapper">
+
+                <div class="input-group">
+                    <label for="dateSelect">1. Wählen Sie ein Datum:</label>
+                    <input type="date" id="dateSelect" class="custom-input" min="2026-04-01">
                 </div>
-                <div class="booking-form" id="bookingForm" style="display:none;">
-                    <input type="text" id="userName" placeholder="Ihr Name">
-                    <input type="tel" id="userPhone" placeholder="Telefonnummer">
-                    <button class="btn-confirm" onclick="sendBooking()">Termin reservieren</button>
+
+                <div id="timeSelection" style="display:none; margin-top: 30px;">
+                    <label style="font-weight:700; color:#555;">2. Wählen Sie eine Uhrzeit:</label>
+                    <div class="slots-grid" id="slotsGrid">
+                        </div>
                 </div>
+
+                <div id="finalForm" class="form-details">
+                    <div class="input-group">
+                        <label>3. Ihre Kontaktdaten:</label>
+                        <input type="text" id="custName" class="custom-input" placeholder="Vollständiger Name" style="margin-bottom:15px;">
+                        <input type="tel" id="custPhone" class="custom-input" placeholder="Telefonnummer">
+                    </div>
+                    <button class="submit-btn" onclick="processBooking()">Termin jetzt anfragen</button>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer id="contact" class="site-footer">
         <div class="container">
-            <h2>A1 AUTO WASCH SAARBRÜCKEN</h2>
-            <div class="footer-info">
-                <p><i class="fa-solid fa-map-location-dot"></i> Lebacher Str. 145, 66113 Saarbrücken</p>
-                <p><i class="fa-solid fa-phone-volume"></i> 0681-39689991</p>
+            <div class="footer-logo">
+                <h2>A1 AUTO WASCH SAARBRÜCKEN</h2>
             </div>
-            <p style="margin-top:40px; color:#888;">© 2026 A1 Auto Wasch. Alle Rechte vorbehalten.</p>
+
+            <div class="footer-contacts">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lebacher Str. 145, 66113 Saarbrücken</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>0681-39689991</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@a1-autowasch.de</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 A1 Auto Wasch & Service. Alle Rechte vorbehalten. | <a href="#" style="color:#777; text-decoration:none;">Impressum</a> | <a href="#" style="color:#777; text-decoration:none;">Datenschutz</a></p>
+            </div>
         </div>
     </footer>
 
     <script>
-        function toggleMenu() {
-            var x = document.getElementById("navLinks");
-            x.classList.toggle("active");
+        // Функция переключения мобильного меню
+        function toggleMobileMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
         }
 
-        const datePicker = document.getElementById('datePicker');
-        const slotsContainer = document.getElementById('slotsContainer');
-        const timeSlots = document.getElementById('timeSlots');
-        const bookingForm = document.getElementById('bookingForm');
+        // Логика системы бронирования
+        const dateInput = document.getElementById('dateSelect');
+        const timeDiv = document.getElementById('timeSelection');
+        const slotsGrid = document.getElementById('slotsGrid');
+        const finalForm = document.getElementById('finalForm');
 
-        datePicker.addEventListener('change', function() {
-            const date = new Date(this.value);
-            timeSlots.innerHTML = '';
-            if (date.getDay() === 0) {
-                timeSlots.innerHTML = '<p style="color:red; grid-column: 1/-1;">Sonntag geschlossen.</p>';
-                bookingForm.style.display = 'none';
+        dateInput.addEventListener('change', function() {
+            const selectedDate = new Date(this.value);
+            const dayOfWeek = selectedDate.getDay();
+
+            // Очищаем сетку
+            slotsGrid.innerHTML = '';
+            finalForm.style.display = 'none';
+
+            if (dayOfWeek === 0) {
+                // Воскресенье
+                slotsGrid.innerHTML = '<p style="color:#f44336; font-weight:700; grid-column: 1/-1;">Sonntags haben wir leider geschlossen.</p>';
             } else {
-                ['09:00', '11:00', '14:00', '16:00'].forEach(time => {
-                    const btn = document.createElement('div');
-                    btn.className = 'time-slot';
-                    btn.innerText = time;
-                    btn.onclick = () => {
-                        document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
-                        btn.classList.add('selected');
-                        bookingForm.style.display = 'block';
+                // Доступное время
+                const times = ['09:00', '10:30', '12:00', '14:00', '15:30', '17:00'];
+
+                times.forEach(time => {
+                    const slotBtn = document.createElement('div');
+                    slotBtn.className = 'slot';
+                    slotBtn.innerText = time;
+                    slotBtn.onclick = function() {
+                        // Снимаем выделение с других
+                        document.querySelectorAll('.slot').forEach(s => s.classList.remove('active'));
+                        // Выделяем текущий
+                        this.classList.add('active');
+                        // Показываем форму данных
+                        finalForm.style.display = 'block';
+                        finalForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     };
-                    timeSlots.appendChild(btn);
+                    slotsGrid.appendChild(slotBtn);
                 });
             }
-            slotsContainer.style.display = 'block';
+            timeDiv.style.display = 'block';
         });
 
-        function sendBooking() {
-            alert("Vielen Dank! Ihre Anfrage wurde gesendet.");
+        // Функция отправки (эмуляция)
+        function processBooking() {
+            const name = document.getElementById('custName').value;
+            if (name.trim() === "") {
+                alert("Bitte geben Sie Ihren Namen ein.");
+                return;
+            }
+            alert("Vielen Dank, " + name + "! Ваша заявка принята. Мы свяжемся с вами для подтверждения.");
         }
     </script>
 </body>
