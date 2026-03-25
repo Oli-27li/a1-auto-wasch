@@ -764,32 +764,42 @@ function confirmAndBook() {
     window.location.href = "#booking";
 }
     </script>
-<div id="extrasList">
-    <div class="extra-item">
-        <label><input type="checkbox" class="extra-checkbox" value="Frontscheibenversiegelung"> Frontscheibenversiegelung</label>
-        <span class="extra-price">ab 40€</span>
-    </div>
-    <div class="extra-item">
-        <label><input type="checkbox" class="extra-checkbox" value="Sämtl. Fenster"> Sämtl. Fenster u. Außenspiegel</label>
-        <span class="extra-price">ab 80€</span>
-    </div>
-    <div class="extra-item">
-        <label><input type="checkbox" class="extra-checkbox" value="Dachhimmel Reinigung"> Dachhimmel Shamponieren</label>
-        <span class="extra-price">ab 40€</span>
-    </div>
-    <div class="extra-item">
-        <label><input type="checkbox" class="extra-checkbox" value="Lederpflege"> Lederpflege</label>
-        <span class="extra-price">ab 50€</span>
-    </div>
-    <div class="extra-item">
-        <label><input type="checkbox" class="extra-checkbox" value="Stoffverdeck"> Stoffverdeck Pflege + Imprägnierung</label>
-        <span class="extra-price">ab 35€</span>
-    </div>
-    <div class="extra-item">
-        <label><input type="checkbox" class="extra-checkbox" value="Ozonbehandlung"> Ozonbehandlung</label>
-        <span class="extra-price">ab 35€</span>
+    <div class="modal-overlay" id="extrasModal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeExtras()">&times;</span>
+        <div class="modal-header">Möchten Sie Extras hinzufügen?</div>
+
+        <div id="extrasList">
+            <div class="extra-item">
+                <label><input type="checkbox" class="extra-checkbox" value="Frontscheibenversiegelung"> Frontscheibenversiegelung</label>
+                <span class="extra-price">ab 40€</span>
+            </div>
+            <div class="extra-item">
+                <label><input type="checkbox" class="extra-checkbox" value="Sämtliche Fenster"> Sämtl. Fenster u. Außenspiegel</label>
+                <span class="extra-price">ab 80€</span>
+            </div>
+            <div class="extra-item">
+                <label><input type="checkbox" class="extra-checkbox" value="Dachhimmel"> Dachhimmel Shamponieren</label>
+                <span class="extra-price">ab 40€</span>
+            </div>
+            <div class="extra-item">
+                <label><input type="checkbox" class="extra-checkbox" value="Lederpflege"> Lederpflege</label>
+                <span class="extra-price">ab 50€</span>
+            </div>
+            <div class="extra-item">
+                <label><input type="checkbox" class="extra-checkbox" value="Stoffverdeck"> Stoffverdeck Pflege + Imprägnierung</label>
+                <span class="extra-price">ab 35€</span>
+            </div>
+            <div class="extra-item">
+                <label><input type="checkbox" class="extra-checkbox" value="Ozonbehandlung"> Ozonbehandlung</label>
+                <span class="extra-price">ab 35€</span>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-book" onclick="confirmAndBook()">Weiter zum Termin</button>
+        </div>
     </div>
 </div>
-
 </body>
 </html>
