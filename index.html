@@ -713,35 +713,25 @@
     </div> </footer>
 </div>
 
-<script>
-  // Mobile menu toggle
-document.getElementById('mobile-menu').onclick = function() {
-    document.getElementById('nav-list').classList.toggle('active');
-};
-
 let currentBasePackage = "";
 
-// 1. Open Pop-up
-function openExtras(packageName, price) {
-    currentBasePackage = packageName + " (" + price + "€)";
+function openExtras(packageName) {
+    currentBasePackage = packageName;
     document.getElementById('extrasModal').style.display = 'flex';
 }
 
-// 2. Close Pop-up
 function closeExtras() {
     document.getElementById('extrasModal').style.display = 'none';
 }
 
-// 3. Confirm and scroll to Booking
 function confirmPackage() {
     let selectedExtras = [];
-    let checkboxes = document.querySelectorAll('#extrasList input:checked');
+    let checkboxes = document.querySelectorAll('.extra-checkbox:checked');
 
     checkboxes.forEach(function(item) {
         selectedExtras.push(item.value);
     });
 
-    // Save info to hidden input
     let finalInfo = currentBasePackage;
     if (selectedExtras.length > 0) {
         finalInfo += " + Extras: " + selectedExtras.join(", ");
@@ -749,11 +739,12 @@ function confirmPackage() {
 
     document.getElementById('service_info').value = finalInfo;
 
-    // Close and Scroll
+    // Сбрасываем галочки для следующего раза
+    document.querySelectorAll('.extra-checkbox').forEach(cb => cb.checked = false);
+
     closeExtras();
     document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
 }
-
 // Time Slots Logic
 const datePicker = document.getElementById('datePicker');
 const slotsContainer = document.getElementById('slotsContainer');
@@ -807,8 +798,7 @@ function confirmPackage() {
     closeExtras();
     document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
 }   
- </script>
-</body>
+     </script>
     <div class="modal-overlay" id="extrasModal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeExtras()">&times;</span>
@@ -821,7 +811,7 @@ function confirmPackage() {
         </div>
         <button class="btn-book" onclick="confirmPackage()" style="margin-top: 25px;">Weiter zur Buchung</button>
     </div>
-</div>
+</body>
 </html>
 
 
