@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-/* ПРЕМИУМ-БАННЕР НА ВЕСЬ ЭКРАН */
+/* ПОЛНОЕ ОБНОВЛЕНИЕ БАННЕРА */
 .hero-banner {
-    height: 100vh; /* Теперь баннер занимает 100% высоты экрана */
+    height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
-                      url('https://github.com/Oli-27li/a1-auto-wasch/blob/main/hero-white-car.jpg?raw=true');
+                      url('hero-white-car.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -21,33 +21,44 @@
     align-items: center;
     text-align: center;
     color: white;
-    /* Убрали border-bottom, чтобы баннер переходил в контент */
 }
 
-/* Это теперь будет "матовым стеклом" для премиум-вида */
 .hero-text-box {
-    background: rgba(255, 255, 255, 0.1); /* Прозрачный белый фон */
-    padding: 50px 70px; /* Увеличили отступы */
-    border-radius: 30px; /* Скруглили сильнее */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Тонкая белая рамка */
-    backdrop-filter: blur(15px); /* Вот этот эффект "матового стекла"! */
-    -webkit-backdrop-filter: blur(15px); /* Для Сафари */
+    background: rgba(255, 255, 255, 0.1); /* Прозрачный белый вместо черного */
+    backdrop-filter: blur(15px); /* Эффект стекла */
+    -webkit-backdrop-filter: blur(15px);
+    padding: 50px 70px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
-        /* СТИЛИ ДЛЯ КНОПКИ 'KONTAKT' НА БАННЕРЕ */
+.hero-text-box {
+    background: rgba(255, 255, 255, 0.1) !important; /* УБИРАЕМ ЧЕРНЫЙ ФОН */
+    backdrop-filter: blur(15px) !important; /* Эффект стекла */
+    -webkit-backdrop-filter: blur(15px);
+    padding: 50px 80px !important;
+    border-radius: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
+}
+
+.hero-text-box h1 {
+    font-size: 60px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+}
+
 .btn-hero {
     display: inline-block;
-    margin-top: 40px; /* Отступ сверху */
-    padding: 15px 35px; /* Аккуратные отступы */
-    background-color: white; /* Белый фон кнопки */
-    color: #0091D5; /* Твой синий цвет текста */
+    margin-top: 30px;
+    padding: 15px 45px;
+    background: white !important;
+    color: #0091D5 !important;
+    border-radius: 50px;
     text-decoration: none;
-    border-radius: 50px; /* Полностью скругленная (как на примере) */
     font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 2px;
     transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Легкая тень */
 }
 
 .btn-hero:hover {
