@@ -8,6 +8,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
+        /* ГЛАВНЫЙ БАННЕР С БЕЛОЙ МАШИНОЙ */
+.hero-banner {
+    height: 80vh;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)),
+                      url('https://github.com/Oli-27li/a1-auto-wasch/blob/main/hero-white-car.jpg?raw=true');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-bottom: 5px solid #0091D5;
+}
+
+.hero-text-box {
+    background: rgba(0, 0, 0, 0.3); /* Легкое затемнение под текстом для читаемости */
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.hero-text-box h1 {
+    font-size: 55px;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.hero-text-box p {
+    font-size: 22px;
+    margin-top: 10px;
+    font-weight: 300;
+}
         body {
             margin: 0;
             padding: 0;
@@ -343,6 +378,12 @@
             <a href="#contact">Kontakt</a>
         </nav>
     </header>
+    <section class="hero-banner">
+    <div class="hero-text-box">
+        <h1>PREMIUM GLANZ</h1>
+        <p>A1 Auto Wasch Saarbrücken</p>
+    </div>
+</section>
 
     <section id="about" class="about-section">
         <div class="container">
