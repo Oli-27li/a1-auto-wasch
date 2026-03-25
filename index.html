@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* ГЛАВНЫЙ БАННЕР С БЕЛОЙ МАШИНОЙ */
+/* ПРЕМИУМ-БАННЕР НА ВЕСЬ ЭКРАН */
 .hero-banner {
-    height: 80vh;
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)),
+    height: 100vh; /* Теперь баннер занимает 100% высоты экрана */
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
                       url('https://github.com/Oli-27li/a1-auto-wasch/blob/main/hero-white-car.jpg?raw=true');
     background-size: cover;
     background-position: center;
@@ -21,7 +21,57 @@
     align-items: center;
     text-align: center;
     color: white;
-    border-bottom: 5px solid #0091D5;
+    /* Убрали border-bottom, чтобы баннер переходил в контент */
+}
+
+/* Это теперь будет "матовым стеклом" для премиум-вида */
+.hero-text-box {
+    background: rgba(255, 255, 255, 0.1); /* Прозрачный белый фон */
+    padding: 50px 70px; /* Увеличили отступы */
+    border-radius: 30px; /* Скруглили сильнее */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Тонкая белая рамка */
+    backdrop-filter: blur(15px); /* Вот этот эффект "матового стекла"! */
+    -webkit-backdrop-filter: blur(15px); /* Для Сафари */
+}
+        /* СТИЛИ ДЛЯ КНОПКИ 'KONTAKT' НА БАННЕРЕ */
+.btn-hero {
+    display: inline-block;
+    margin-top: 40px; /* Отступ сверху */
+    padding: 15px 35px; /* Аккуратные отступы */
+    background-color: white; /* Белый фон кнопки */
+    color: #0091D5; /* Твой синий цвет текста */
+    text-decoration: none;
+    border-radius: 50px; /* Полностью скругленная (как на примере) */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Легкая тень */
+}
+
+.btn-hero:hover {
+    background-color: #0091D5; /* При наведении становится синей */
+    color: white; /* Текст становится белым */
+    transform: scale(1.05); /* Легкое увеличение */
+}
+
+/* Улучшили сам текст */
+.hero-text-box h1 {
+    font-size: clamp(35px, 6vw, 65px); /* Размер будет меняться от экрана */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Увеличили расстояние между буквами */
+    font-weight: 900; /* Максимально жирный шрифт */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Добавили тень под текст */
+}
+
+.hero-text-box p {
+    font-size: clamp(16px, 3vw, 22px);
+    margin-top: 15px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 5px; /* Увеличили расстояние */
 }
 
 .hero-text-box {
@@ -382,6 +432,7 @@
     <div class="hero-text-box">
         <h1>PREMIUM GLANZ</h1>
         <p>A1 Auto Wasch Saarbrücken</p>
+        <a href="#contact" class="btn-hero">Kontakt</a>
     </div>
 </section>
 
