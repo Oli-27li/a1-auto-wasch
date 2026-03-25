@@ -608,28 +608,22 @@
 
             alert("Vielen Dank! Ihre Anfrage wird nun über Ihre Mail-App gesendet.");
         }
-    <header class="navbar">
-        <div class="header-left">
-            <img src="image.png" alt="Logo" class="logo-img">
-            <span class="brand-name">A1 Auto Wasch</span>
-        </div>
+    // Код для мобильного меню
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
 
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                navList.classList.toggle('active');
+            });
+        }
 
-        <nav class="nav-links" id="nav-list">
-            <a href="#">Startseite</a>
-            <a href="#about">Über uns</a>
-            <a href="#electronic-service">Auto Service</a>
-            <a href="#services">Dienstleistungen</a>
-            <a href="#opening">Öffnungszeiten</a>
-            <a href="#booking">Termin</a>
-            <a href="#contact">Kontakt</a>
-        </nav>
-    </header>
+        // Закрывать меню при клике на ссылку
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
     </script>
 
 </body>
