@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-/* ПОЛНОЕ ОБНОВЛЕНИЕ БАННЕРА */
+/* --- ГЛАВНЫЙ БАННЕР: ПРЕМИУМ ВИД --- */
 .hero-banner {
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
                       url('hero-white-car.jpg');
     background-size: cover;
     background-position: center;
@@ -21,46 +21,44 @@
     align-items: center;
     text-align: center;
     color: white;
+    margin-top: -100px; /* Убирает белую полосу сверху */
 }
 
 .hero-text-box {
-    background: rgba(255, 255, 255, 0.1); /* Прозрачный белый вместо черного */
-    backdrop-filter: blur(15px); /* Эффект стекла */
+    background: rgba(255, 255, 255, 0.1); /* Эффект стекла */
+    backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    padding: 50px 70px;
-    border-radius: 30px;
+    padding: 60px 80px;
+    border-radius: 40px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.hero-text-box {
-    background: rgba(255, 255, 255, 0.1) !important; /* УБИРАЕМ ЧЕРНЫЙ ФОН */
-    backdrop-filter: blur(15px) !important; /* Эффект стекла */
-    -webkit-backdrop-filter: blur(15px);
-    padding: 50px 80px !important;
-    border-radius: 30px !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
 }
 
 .hero-text-box h1 {
-    font-size: 60px !important;
-    font-weight: 900 !important;
+    font-size: 65px;
+    font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 10px;
     letter-spacing: 5px;
+    margin: 0;
 }
 
+.hero-text-box p {
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin: 15px 0 40px;
+}
+
+/* СТИЛЬ КНОПКИ */
 .btn-hero {
     display: inline-block;
-    margin-top: 30px;
     padding: 15px 45px;
-    background: white !important;
-    color: #0091D5 !important;
+    background: white;
+    color: #0091D5;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
+    text-transform: uppercase;
     transition: 0.3s;
 }
-
 .btn-hero:hover {
     background-color: #0091D5; /* При наведении становится синей */
     color: white; /* Текст становится белым */
