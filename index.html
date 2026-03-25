@@ -730,24 +730,27 @@
                 navList.classList.remove('active');
             });
         });
-        let currentPackage = "";
+     let selectedPackageName = ""; // Создаем одну общую переменную
+
 function openExtras(packageName) {
-    currentPackage = packageName;
+    selectedPackageName = packageName; // Запоминаем название пакета
     document.getElementById('extrasModal').style.display = 'flex';
 }
+
 function closeExtras() {
     document.getElementById('extrasModal').style.display = 'none';
 }
+
 function confirmAndBook() {
     let selectedExtras = [];
     document.querySelectorAll('.extra-checkbox:checked').forEach((item) => {
         selectedExtras.push(item.value);
     });
 
-    const packageInfo = window.selectedPackage || "Kein Paket";
+    // Берем название из нашей общей переменной
+    const packageInfo = selectedPackageName || "Kein Paket";
     const extrasInfo = selectedExtras.length > 0 ? selectedExtras.join(", ") : "Keine Extras";
 
-    // Сохраняем данные в скрытое поле для Formspree
     const hiddenInput = document.getElementById('service_info');
     if (hiddenInput) {
         hiddenInput.value = "Ausgewählt: " + packageInfo + " | Extras: " + extrasInfo;
