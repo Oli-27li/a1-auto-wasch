@@ -673,45 +673,69 @@
 </div>
 
 <script>
-    // Мобильное меню
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navList = document.getElementById('nav-list');
-    mobileMenu.addEventListener('click', () => navList.classList.toggle('active'));
+  // Mobile menu toggle
+document.getElementById('mobile-menu').onclick = function() {
+    document.getElementById('nav-list').classList.toggle('active');
+};
 
-    // Календарь
-    const datePicker = document.getElementById('datePicker');
-    datePicker.addEventListener('change', () => {
-        document.getElementById('slotsContainer').style.display = 'block';
+let currentBasePackage = "";
 
-        // ТЕХНИЧЕСКАЯ ПРАВКА №3: ВРЕМЯ ТЕРМИНОВ КАЖДЫЙ ЧАС
-        const slots = [
-            "09:00", "10:00", "11:00", "12:00", "13:00",
-            "14:00", "15:00", "16:00", "17:00", "18:00"
-        ];
+// 1. Open Pop-up
+function openExtras(packageName, price) {
+    currentBasePackage = packageName + " (" + price + "€)";
+    document.getElementById('extrasModal').style.display = 'flex';
+}
 
-        const container = document.getElementById('timeSlots');
-        container.innerHTML = '';
-        slots.forEach(time => {
-            const div = document.createElement('div');
-            div.className = 'time-slot';
-            div.innerText = time;
-            div.onclick = () => {
-                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
-                div.classList.add('selected');
-                document.getElementById('selectedTimeInput').value = time;
-            };
-            container.appendChild(div);
-        });
+// 2. Close Pop-up
+function closeExtras() {
+    document.getElementById('extrasModal').style.display = 'none';
+}
+
+// 3. Confirm and scroll to Booking
+function confirmPackage() {
+    let selectedExtras = [];
+    let checkboxes = document.querySelectorAll('#extrasList input:checked');
+
+    checkboxes.forEach(function(item) {
+        selectedExtras.push(item.value);
     });
 
-    // Модалка (Extras выбор)
-    // ТЕХНИЧЕСКАЯ ПРАВКА №2: Модалка не нужна, т.к. Extras — это отдельная секция.
-    // При клике на "Auswählen" — скроллим к форме бронирования.
-    function openExtras(pkg) {
-        document.getElementById('service_info').value = pkg;
-        document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
+    // Save info to hidden input
+    let finalInfo = currentBasePackage;
+    if (selectedExtras.length > 0) {
+        finalInfo += " + Extras: " + selectedExtras.join(", ");
     }
-</script>
+
+    document.getElementById('service_info').value = finalInfo;
+
+    // Close and Scroll
+    closeExtras();
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Time Slots Logic
+const datePicker = document.getElementById('datePicker');
+const slotsContainer = document.getElementById('slotsContainer');
+const timeSlots = document.getElementById('timeSlots');
+const availableTimes = ["10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
+
+datePicker.onchange = function() {
+    slotsContainer.style.display = 'block';
+    timeSlots.innerHTML = "";
+    availableTimes.forEach(function(time) {
+        let slotDiv = document.createElement('div');
+        slotDiv.className = 'time-slot';
+        slotDiv.innerText = time;
+        slotDiv.onclick = function() {
+            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+            slotDiv.classList.add('selected');
+            document.getElementById('selectedTimeInput').value = time;
+        };
+        timeSlots.appendChild(slotDiv);
+    });
+};
+    
+ </script>
 </body>
 </html>
 
