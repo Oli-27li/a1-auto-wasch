@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
+         /* --- Стили для главного баннера с белой машиной --- */
+        .hero-banner {
+            height: 80vh;
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('hero-white-car.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            border-bottom: 5px solid #0091D5;
+        }
 
         .hero-text-box {
             background: rgba(255, 255, 255, 0.15);
@@ -367,44 +381,13 @@
             <a href="#contact">Kontakt</a>
         </nav>
     </header>
-     /* --- Стили для главного баннера с белой машиной --- */
-        .hero-banner {
-            height: 80vh;
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('hero-white-car.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            border-bottom: 5px solid #0091D5;
-        }
-
-        .hero-text-box {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(8px);
-            padding: 40px 60px;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .hero-text-box h1 {
-            font-size: clamp(35px, 6vw, 65px);
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
-        }
-
-        .hero-text-box p {
-            font-size: 20px;
-            letter-spacing: 4px;
-            margin-top: 10px;
-            font-weight: 300;
-            text-transform: uppercase;
-        }
+    
+     <section class="hero-banner">
+    <div class="hero-text-box">
+        <h1>PREMIUM GLANZ</h1>
+        <p>A1 Auto Wasch Saarbrücken</p>
+    </div>
+</section>
 
     <section id="about" class="about-section">
         <div class="container">
