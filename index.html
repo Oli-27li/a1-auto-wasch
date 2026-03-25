@@ -730,10 +730,10 @@
                 navList.classList.remove('active');
             });
         });
-     let selectedPackageName = ""; // Создаем одну общую переменную
+     let selectedPackageName = "";
 
 function openExtras(packageName) {
-    selectedPackageName = packageName; // Запоминаем название пакета
+    selectedPackageName = packageName;
     document.getElementById('extrasModal').style.display = 'flex';
 }
 
@@ -747,7 +747,6 @@ function confirmAndBook() {
         selectedExtras.push(item.value);
     });
 
-    // Берем название из нашей общей переменной
     const packageInfo = selectedPackageName || "Kein Paket";
     const extrasInfo = selectedExtras.length > 0 ? selectedExtras.join(", ") : "Keine Extras";
 
