@@ -706,32 +706,14 @@
                         document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
                         btn.classList.add('selected');
                         selectedTime = time;
-                        bookingForm.style.display = 'block';
+                        document.getElementById('selectedTimeInput').value = time;
                     };
                     timeSlots.appendChild(btn);
                 });
             }
             slotsContainer.style.display = 'block';
         });
-
-        function sendBooking() {
-            const name = document.getElementById('userName').value;
-            const phone = document.getElementById('userPhone').value;
-            const date = datePicker.value;
-
-            if(!name || !phone || !selectedTime) {
-                alert("Bitte füllen Sie alle Felder aus и wählen Sie eine Uhrzeit.");
-                return;
-            }
-
-            const emailTo = "";
-            const subject = encodeURIComponent(`Neue Terminanfrage: ${date}`);
-            const body = encodeURIComponent(`Neue Buchungsanfrage erhalten:\n\nDatum: ${date}\nUhrzeit: ${selectedTime}\nKunde: ${name}\nTelefon: ${phone}`);
-
-            window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
-
-            alert("Vielen Dank! Ihre Anfrage wird nun über Ihre Mail-App gesendet.");
-        }
+        
     // Код для мобильного меню
         const mobileMenu = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
