@@ -48,6 +48,7 @@
             transition: 0.3s;
         }
 
+       /* Кнопка бургера — по умолчанию скрыта */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -59,18 +60,19 @@
 .menu-toggle span {
     width: 30px;
     height: 3px;
-    background: #0091D5;
+    background: #0091D5; /* Твой синий цвет */
     border-radius: 3px;
     transition: 0.3s;
 }
 
+/* МОБИЛЬНОЕ МЕНЮ (сработает, когда окно станет узким) */
 @media (max-width: 1024px) {
     .menu-toggle {
-        display: flex;
+        display: flex; /* Показываем полоски */
     }
 
     .nav-links {
-        display: none;
+        display: none; /* Прячем обычное меню */
         flex-direction: column;
         position: absolute;
         top: 70px;
@@ -82,6 +84,7 @@
         text-align: center;
     }
 
+    /* Когда меню открыто (через JavaScript) */
     .nav-links.active {
         display: flex;
     }
@@ -121,7 +124,7 @@
 }
 
 .hero-text-box {
-    background: rgba(255, 255, 255, 0.7) !important;
+    background: rgba(255, 255, 255, 0.7) !important; /* Светлый фон */
     backdrop-filter: blur(10px) !important;
     padding: 40px 60px !important;
     border-radius: 30px !important;
@@ -129,14 +132,14 @@
 }
 
 .hero-text-box h1 {
-    color: #0091D5 !important;
+    color: #0091D5 !important; /* Голубой заголовок */
     font-size: clamp(24px, 5vw, 50px) !important;
     text-transform: uppercase !important;
     margin: 0 0 10px 0 !important;
 }
 
 .hero-text-box p {
-    color: #0091D5 !important;
+    color: #0091D5 !important; /* Голубой подзаголовок */
     font-size: 18px !important;
     font-weight: 600 !important;
     margin-bottom: 30px !important;
@@ -145,15 +148,16 @@
 .btn-hero {
     display: inline-block !important;
     padding: 15px 45px !important;
-    background-color: #0091D5 !important;
-    color: #ffffff !important;           
+    background-color: #0091D5 !important; /* Синяя кнопка */
+    color: #ffffff !important;           /* Белый текст внутри */
     border-radius: 50px !important;
     text-decoration: none !important;
     font-weight: bold !important;
     text-transform: uppercase !important;
 }
-        .about-section { padding: 80px 20px; background-color: rgba(0, 145, 213, 0.05); text-align: center; }
+        .about-section { padding: 80px 20px; text-align: center; }
         .services-section { padding: 80px 20px; background-color: rgba(255, 255, 255, 0.85); text-align: center; }
+
         .container { max-width: 1200px; margin: 0 auto; position: relative; }
         .section-title { color: #0091D5; font-size: clamp(28px, 6vw, 40px); margin-bottom: 20px; text-transform: uppercase; }
 
@@ -356,8 +360,7 @@
         .contact-section { padding: 80px 20px; text-align: center; background-color: white; border-top: 1px solid #eee; }
         .contact-box { font-size: 20px; color: #333; margin-top: 20px; line-height: 1.8; }
         .contact-box i { color: #0091D5; margin-right: 10px; }
-
-/* Pop-up */
+        /* Стили для всплывающего окна (Pop-up) */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -462,8 +465,8 @@
             <a href="#contact" class="btn-hero">Kontakt</a>
         </div>
     </section>
-
     <div style="background: url('img/bubbles.png') repeat; background-attachment: fixed; position: relative; width: 100%;">
+
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.4); z-index: 1; pointer-events: none;"></div>
 
     <div style="position: relative; z-index: 30;">
@@ -485,11 +488,12 @@
                 </p>
 
                 <p>
-                    Jedes Fahrzeug erhält genau die Pflege, die es benötigt, individuell abgestimmt auf его состояние и Ваши требования. Мы объединяем опыт с гордостью за свою работу.
+                    Jedes Fahrzeug erhält genau die Pflege, die es benötigt, individuell abgestimmt auf seinen Zustand und Ihre Anforderungen. Wir verbinden Fachwissen mit echtem Stolz auf unsere Arbeit, denn Qualität ist für uns kein Versprechen, sondern die Basis jedes Handgriffs.
                 </p>
             </div>
         </div>
     </section>
+
     <section id="services" class="services-section">
         <div class="container">
             <h2 class="section-title">Unsere Pflegepakete</h2>
@@ -519,7 +523,9 @@
                     <ul class="package-details"><li>Intensiv Innenraumreinigung</li><li>Außenwäsche: Scheibenreinigung</li><li>Innenraum (Teppich, Sitzpolster, Kofferraum + mit Dampf Extraktionsgerät reinigen)</li><li>Armaturenbrett, Türverkleidungen, Fußmatten, Türrahmen</li></ul></div>
                     <button class="btn-book" onclick="openExtras('Paket 3')">Auswählen</button>
                 </div>
-                <div class="package-card">
+
+
+<div class="package-card">
                     <div><h3 class="package-name">Pflegepaket 4</h3><div class="package-price">250€<span> / KL2</span></div>
                     <div style="color: #555; font-size: 16px; margin-top: -15px; margin-bottom: 10px;">KL3 ab 300€</div>
                     <ul class="package-details"><li>Lackaufbereitung</li><li>Außenwäsche, Innenraumreinigung</li><li>Flugrost, maschinelle 2 Gang Hochglanz-Lackpolitur</li></ul></div>
@@ -560,6 +566,7 @@
             </table>
         </div>
     </section>
+
     <section id="opening" class="opening-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-regular fa-clock"></i> Öffnungszeiten</h2>
@@ -599,8 +606,8 @@
         <button type="submit" class="btn-book" style="width: 100%; padding: 15px; background-color: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer;">Termin buchen</button>
     </form>
 </div></div></div>
+</div></div><div style="width: 100%; margin: 0; padding: 0; overflow: hidden; font-family: sans-serif; background: #1a1a1e; position: relative; z-index: 100;">
 
-<div style="width: 100%; margin: 0; padding: 0; overflow: hidden; font-family: sans-serif;">
     <section id="electronic-service" style="padding: 100px 0;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div style="text-align: center; margin-bottom: 60px;">
@@ -616,7 +623,7 @@
                         <li><span style="color: #f44336; margin-right: 10px;">✔</span>Kopieren von Motorsteuergeräten</li>
                         <li><span style="color: #f44336; margin-right: 10px;">✔</span>Kopieren von Getriebesteuergeräten</li>
                         <li><span style="color: #f44336; margin-right: 10px;">✔</span>Lösungen für DPF-, AGR- und Adblue-Probleme</li>
-                        <li><span style="color: #f44336; margin-right: 10px;">✔</span>Wegfahrsperre Anpassung</li>
+                        <li><span style="color: #f44336; margin-right: 10px;">✔</span>Wegfahrsperре Anpassung</li>
                         <li><span style="color: #f44336; margin-right: 10px;">✔</span>Start-Stop-Problem Lösungen</li>
                         <li><span style="color: #f44336; margin-right: 10px;">✔</span>Fehlersuche & Löschen von Fehlercodes</li>
                     </ul>
@@ -630,13 +637,13 @@
                         <li><span style="color: #f44336; margin-right: 10px;">✔</span>ELV, EZS, EIS Reparatur</li>
                         <li><span style="color: #f44336; margin-right: 10px;">✔</span>BMW FRM Reparatur</li>
                         <li><span style="color: #f44336; margin-right: 10px;">✔</span>BSI BCM Service</li>
-                        <li><span style="color: #f44336; margin-right: 10px;">✔</span>Fräсен von Schlüsselbärten</li>
+                        <li><span style="color: #f44336; margin-right: 10px;">✔</span>Fräsen von Schlüsselbärten</li>
                     </ul>
                 </div>
             </div>
 
             <div style="text-align: center; margin-top: 60px;">
-                <a href="https://wa.me/4968139689991" style="display: inline-flex; align-items: center; gap: 10px; background-color: #f44336; color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: bold; text-transform: uppercase;">
+                <a href="https://wa.me/4968139689991" style="display: inline-flex; align-items: center; gap: 10px; background-color: #f44336; color: white; padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: bold; text-transform: uppercase; box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);">
                     <i class="fab fa-whatsapp" style="font-size: 22px;"></i> JETZT BERATEN LASSEN
                 </a>
             </div>
@@ -645,53 +652,43 @@
 
     <footer id="contact" style="padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.05); color: white;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
-            <h2 style="color: #0091D5; font-size: 28px; text-transform: uppercase; margin-bottom: 40px;">A1 AUTO WASCH SAARBRÜCKEN</h2>
-            <div style="display: flex; flex-direction: column; gap: 20px; font-size: 18px; align-items: center;">
-                <p><i class="fas fa-map-marker-alt" style="color: #0091D5;"></i> Lebacher Str. 145, 66113 Saarbrücken</p>
-                <p><i class="fas fa-phone" style="color: #0091D5;"></i> 0681-39689991</p>
-                <p><i class="fas fa-envelope" style="color: #0091D5;"></i> info@a1-autowasch.de</p>
-            </div>
-            <p style="margin-top: 60px; font-size: 14px; color: #888;">© 2026 A1 Auto Wasch. Alle Rechte vorbehalten.</p>
-        </div>
-    </footer>
-  </div>
-</div> </div>
 
-<div class="modal-overlay" id="extrasModal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeExtras()">&times;</span>
-        <h2 id="modalTitle" class="modal-header">Extras wählen</h2>
-        <div id="extrasList">
-            <div class="extra-item"><label><input type="checkbox" class="extra-checkbox" value="Ozonbehandlung"> Ozonbehandlung</label><span class="extra-price">+35€</span></div>
-            <div class="extra-item"><label><input type="checkbox" class="extra-checkbox" value="Lederpflege"> Lederpflege</label><span class="extra-price">+50€</span></div>
-        </div>
-        <button class="btn-confirm" onclick="confirmExtras()">Bestätigen</button>
-    </div>
+            <h2 style="color: #0091D5; font-size: 28px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px;">A1 AUTO WASCH SAARBRÜCKEN</h2>
+
+            <div style="display: flex; flex-direction: column; gap: 20px; font-size: 18px; align-items: center;">
+                <p style="margin: 0; display: flex; align-items: center; gap: 15px;"><i class="fas fa-map-marker-alt" style="color: #0091D5; font-size: 24px;"></i> Lebacher Str. 145, 66113 Saarbrücken</p>
+                <p style="margin: 0; display: flex; align-items: center; gap: 15px;"><i class="fas fa-phone" style="color: #0091D5; font-size: 24px;"></i> 0681-39689991</p>
+                <p style="margin: 0; display: flex; align-items: center; gap: 15px;"><i class="fas fa-envelope" style="color: #0091D5; font-size: 24px;"></i> info@a1-autowasch.de</p>
+            </div>
+
+            <div style="margin-top: 40px; display: flex; justify-content: center; gap: 30px; font-size: 30px;">
+                <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: white;"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" style="color: white;"><i class="fab fa-facebook"></i></a>
+            </div>
+           <p style="margin-top: 60px; font-size: 14px; color: #888;">
+        © 2026 A1 Auto Wasch. Alle Rechte vorbehalten.
+      </p>
+    </div> </footer>
 </div>
 
 <script>
+    // Мобильное меню
     const mobileMenu = document.getElementById('mobile-menu');
     const navList = document.getElementById('nav-list');
     mobileMenu.addEventListener('click', () => navList.classList.toggle('active'));
 
-    function openExtras(pkg) {
-        currentPackage = pkg;
-        document.getElementById('modalTitle').innerText = pkg + " Extras";
-        document.getElementById('extrasModal').style.display = 'flex';
-    }
-    function closeExtras() { document.getElementById('extrasModal').style.display = 'none'; }
-    function confirmExtras() {
-        const checkboxes = document.querySelectorAll('.extra-checkbox:checked');
-        let selected = Array.from(checkboxes).map(cb => cb.value);
-        document.getElementById('service_info').value = currentPackage + (selected.length ? " + " + selected.join(", ") : "");
-        closeExtras();
-        document.getElementById('booking').scrollIntoView();
-    }
-
+    // Календарь
     const datePicker = document.getElementById('datePicker');
     datePicker.addEventListener('change', () => {
         document.getElementById('slotsContainer').style.display = 'block';
-        const slots = ["10:00", "11:30", "13:00", "14:30", "16:00"];
+
+        // ТЕХНИЧЕСКАЯ ПРАВКА №3: ВРЕМЯ ТЕРМИНОВ КАЖДЫЙ ЧАС
+        const slots = [
+            "09:00", "10:00", "11:00", "12:00", "13:00",
+            "14:00", "15:00", "16:00", "17:00", "18:00"
+        ];
+
         const container = document.getElementById('timeSlots');
         container.innerHTML = '';
         slots.forEach(time => {
@@ -706,6 +703,14 @@
             container.appendChild(div);
         });
     });
+
+    // Модалка (Extras выбор)
+    // ТЕХНИЧЕСКАЯ ПРАВКА №2: Модалка не нужна, т.к. Extras — это отдельная секция.
+    // При клике на "Auswählen" — скроллим к форме бронирования.
+    function openExtras(pkg) {
+        document.getElementById('service_info').value = pkg;
+        document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
+    }
 </script>
 </body>
 </html>
