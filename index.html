@@ -766,51 +766,68 @@ datePicker.onchange = function() {
         timeSlots.appendChild(slotDiv);
     });
 };
-    
-  <div class="modal-overlay" id="extrasModal">
+ </script>
+
+<div class="modal-overlay" id="extrasModal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeExtras()">&times;</span>
-        <h2 style="color: #0091D5; margin-bottom: 20px;">Zusätzliche Extras</h2>
+        <h3 class="modal-header">Zusätzliche Leistungen</h3>
         <div id="extrasList">
-            </div>
-        <button class="btn-book" onclick="confirmPackage()" style="margin-top: 25px;">Weiter zur Buchung</button>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Frontscheibenversiegelung"> Frontscheibenversiegelung <span style="float:right;">ab 40€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Sämtliche Fenster & Außenspiegel"> Sämtliche Fenster & Außenspiegel <span style="float:right;">ab 80€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Dachhimmel Shamponieren"> Dachhimmel Shamponieren <span style="float:right;">ab 40€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Lederpflege"> Lederpflege <span style="float:right;">ab 50€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Stoffverdeck Pflege & Imprägnierung"> Stoffverdeck Pflege & Imprägnierung <span style="float:right;">ab 35€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Ozonbehandlung"> Ozonbehandlung <span style="float:right;">ab 35€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Tierhaarentfernung"> Tierhaarentfernung <span style="float:right;">ab 30€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Kindersitzreinigung"> Kindersitzreinigung <span style="float:right;">15€/Stk</span></label></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-book" onclick="confirmPackage()">Auswahl bestätigen</button>
+        </div>
     </div>
 </div>
 
 <script>
-    let currentBasePackage = "";
+let currentBasePackage = "";
 
-    function openExtras(packageName) {
-        currentBasePackage = packageName;
-        document.getElementById('extrasModal').style.display = 'flex';
+function openExtras(packageName) {
+    currentBasePackage = packageName;
+    document.getElementById('extrasModal').style.display = 'flex';
+}
+
+function closeExtras() {
+    document.getElementById('extrasModal').style.display = 'none';
+}
+
+function confirmPackage() {
+    let selectedExtras = [];
+    let checkboxes = document.querySelectorAll('.extra-checkbox:checked');
+
+    checkboxes.forEach(function(item) {
+        selectedExtras.push(item.value);
+    });
+
+    let finalInfo = currentBasePackage;
+    if (selectedExtras.length > 0) {
+        finalInfo += " + Extras: " + selectedExtras.join(", ");
     }
 
-    function closeExtras() {
-        document.getElementById('extrasModal').style.display = 'none';
-    }
+    document.getElementById('service_info').value = finalInfo;
 
-    function confirmPackage() {
-        let selectedExtras = [];
-        let checkboxes = document.querySelectorAll('.extra-checkbox:checked');
+    // Reset checkboxes
+    document.querySelectorAll('.extra-checkbox').forEach(cb => cb.checked = false);
 
-        checkboxes.forEach(function(item) {
-            selectedExtras.push(item.value);
-        });
+    closeExtras();
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+}
 
-        let finalInfo = currentBasePackage;
-        if (selectedExtras.length > 0) {
-            finalInfo += " + Extras: " + selectedExtras.join(", ");
-        }
-
-        document.getElementById('service_info').value = finalInfo;
-
-        // Reset checkboxes
-        document.querySelectorAll('.extra-checkbox').forEach(cb => cb.checked = false);
-
-        closeExtras();
-        document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-    }
+// Burger Menu Logic
+document.getElementById('mobile-menu').onclick = function() {
+    document.getElementById('nav-list').classList.toggle('active');
+};
 </script>
+
 </body>
 </html>
 
