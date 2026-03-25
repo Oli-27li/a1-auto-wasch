@@ -8,6 +8,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
+        /* Мобильное меню */
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    color: #0091D5;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-icon { display: block; }
+    .nav-links {
+        display: none; /* Прячем меню по умолчанию */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        z-index: 1001;
+    }
+    .nav-links.active { display: flex; } /* Показываем при клике */
+    .nav-links a { margin: 15px 0; font-size: 18px; }
+}
          /* --- Стили для главного баннера с белой машиной --- */
         .hero-banner {
             height: 80vh;
@@ -369,26 +394,18 @@
             <span></span>
             <span></span>
             <span></span>
-        </div>
-
-        <nav class="nav-links" id="nav-list">
-            <a href="#">Startseite</a>
-            <a href="#about">Über uns</a>
-            <a href="#electronic-service">Auto Service</a>
-            <a href="#services">Dienstleistungen</a>
-            <a href="#opening">Öffnungszeiten</a>
-            <a href="#booking">Termin</a>
-            <a href="#contact">Kontakt</a>
-        </nav>
-    </header>
-    
-     <section class="hero-banner">
-    <div class="hero-text-box">
-        <h1>PREMIUM GLANZ</h1>
-        <p>A1 Auto Wasch Saarbrücken</p>
+     <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
     </div>
-</section>
-
+    <nav class="nav-links" id="navLinks">
+        <a href="#">Startseite</a>
+        <a href="#about">Über uns</a>
+        <a href="#electronic-service">Auto Service</a>
+        <a href="#services">Dienstleistungen</a>
+        <a href="#opening">Öffnungszeiten</a>
+        <a href="#booking">Termin</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
     <section id="about" class="about-section">
         <div class="container">
             <h2 class="section-title">Über uns</h2>
@@ -653,23 +670,15 @@
 
             alert("Vielen Dank! Ihre Anfrage wird nun über Ihre Mail-App gesendet.");
         }
-    // Код для мобильного меню
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
-
-        if (mobileMenu) {
-            mobileMenu.addEventListener('click', () => {
-                navList.classList.toggle('active');
-            });
-        }
-
-        // Закрывать меню при клике на ссылку
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-            });
-        });
-    </script>
-
+    <script>
+function toggleMenu() {
+    var x = document.getElementById("navLinks");
+    if (x.classList.contains("active")) {
+        x.classList.remove("active");
+    } else {
+        x.classList.add("active");
+    }
+}
+</script>
 </body>
 </html>
