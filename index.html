@@ -712,60 +712,6 @@
       </p>
     </div> </footer>
 </div>
-
-let currentBasePackage = "";
-
-function openExtras(packageName) {
-    currentBasePackage = packageName;
-    document.getElementById('extrasModal').style.display = 'flex';
-}
-
-function closeExtras() {
-    document.getElementById('extrasModal').style.display = 'none';
-}
-
-function confirmPackage() {
-    let selectedExtras = [];
-    let checkboxes = document.querySelectorAll('.extra-checkbox:checked');
-
-    checkboxes.forEach(function(item) {
-        selectedExtras.push(item.value);
-    });
-
-    let finalInfo = currentBasePackage;
-    if (selectedExtras.length > 0) {
-        finalInfo += " + Extras: " + selectedExtras.join(", ");
-    }
-
-    document.getElementById('service_info').value = finalInfo;
-
-    // Сбрасываем галочки для следующего раза
-    document.querySelectorAll('.extra-checkbox').forEach(cb => cb.checked = false);
-
-    closeExtras();
-    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-}
-// Time Slots Logic
-const datePicker = document.getElementById('datePicker');
-const slotsContainer = document.getElementById('slotsContainer');
-const timeSlots = document.getElementById('timeSlots');
-const availableTimes = ["10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
-
-datePicker.onchange = function() {
-    slotsContainer.style.display = 'block';
-    timeSlots.innerHTML = "";
-    availableTimes.forEach(function(time) {
-        let slotDiv = document.createElement('div');
-        slotDiv.className = 'time-slot';
-        slotDiv.innerText = time;
-        slotDiv.onclick = function() {
-            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
-            slotDiv.classList.add('selected');
-            document.getElementById('selectedTimeInput').value = time;
-        };
-        timeSlots.appendChild(slotDiv);
-    });
-};
  </script>
 
 <div class="modal-overlay" id="extrasModal">
@@ -779,8 +725,6 @@ datePicker.onchange = function() {
             <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Lederpflege"> Lederpflege <span style="float:right;">ab 50€</span></label></div>
             <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Stoffverdeck Pflege & Imprägnierung"> Stoffverdeck Pflege & Imprägnierung <span style="float:right;">ab 35€</span></label></div>
             <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Ozonbehandlung"> Ozonbehandlung <span style="float:right;">ab 35€</span></label></div>
-            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Tierhaarentfernung"> Tierhaarentfernung <span style="float:right;">ab 30€</span></label></div>
-            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Kindersitzreinigung"> Kindersitzreinigung <span style="float:right;">15€/Stk</span></label></div>
         </div>
         <div class="modal-footer">
             <button class="btn-book" onclick="confirmPackage()">Auswahl bestätigen</button>
