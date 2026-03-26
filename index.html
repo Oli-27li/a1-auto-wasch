@@ -389,20 +389,25 @@
     height: 20px;
     accent-color: #0091D5;
 }
-        @media (max-width: 767px) {
+       @media (max-width: 767px) {
     .hero {
-        background-image: url('bmw.png?v=2') !important;
+        background-image: url('hero-white-car.jpg?v=3') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: scroll !important;
     }
 
     .booking-form input[type="text"],
     .booking-form input[type="tel"],
     .booking-form select,
-    .btn-confirm {
+    .btn-confirm,
+    .date-input {
         width: 100% !important;
         box-sizing: border-box !important;
         display: block !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
+        max-width: 100% !important;
         -webkit-appearance: none;
     }
 
@@ -411,11 +416,14 @@
         height: 50px !important;
         font-size: 16px !important;
         margin-bottom: 15px !important;
+        border: 2px solid #0091D5 !important;
+        padding: 0 15px !important;
     }
 
     .btn-confirm {
         height: 55px !important;
         margin-top: 10px !important;
+        width: 100% !important;
         padding: 0 !important;
     }
 }
