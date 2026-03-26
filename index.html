@@ -738,7 +738,25 @@
         </div>
     </div>
 </div>
+ </div> </section> <div class="modal-overlay" id="extrasModal" style="display:none;">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeExtras()">&times;</span>
+        <h3 style="color: #0091D5; margin-bottom: 20px;">Zusätzliche Leistungen</h3>
+        <div id="extrasList">
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Frontscheibenversiegelung"> Frontscheibenversiegelung <span style="float:right;">ab 40€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Sämtliche Fenster & Außenspiegel"> Sämtliche Fenster & Außenspiegel <span style="float:right;">ab 80€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Dachhimmel Shamponieren"> Dachhimmel Shamponieren <span style="float:right;">ab 40€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Lederpflege"> Lederpflege <span style="float:right;">ab 50€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Stoffverdeck Pflege"> Stoffverdeck Pflege <span style="float:right;">ab 35€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Ozonbehandlung"> Ozonbehandlung <span style="float:right;">ab 35€</span></label></div>
+            <div class="extra-item"><label style="checkbox; cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Tierhaarentfernung"> Tierhaarentfernung <span style="float:right;">ab 30€</span></label></div>
+            <div class="extra-item"><label style="cursor:pointer;"><input type="checkbox" class="extra-checkbox" value="Kindersitzreinigung"> Kindersitzreinigung <span style="float:right;">15€/Stk</span></label></div>
+        </div>
+        <button class="btn-book" onclick="confirmPackage()" style="margin-top: 25px; width: 100%;">Auswahl bestätigen</button>
+    </div>
+</div>
 
+<script>
 let currentBasePackage = "";
 
 // Modal Management
@@ -765,20 +783,17 @@ function confirmPackage() {
     }
 
     document.getElementById('service_info').value = finalInfo;
-
-    // Reset checkboxes for next time
     document.querySelectorAll('.extra-checkbox').forEach(cb => cb.checked = false);
 
     closeExtras();
     document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Date validation (No Sundays)
+// Date validation
 const datePicker = document.getElementById('datePicker');
 if (datePicker) {
     datePicker.addEventListener('change', function() {
-        const selectedDate = new Date(this.value);
-        const day = selectedDate.getUTCDay();
+        const day = new Date(this.value).getUTCDay();
         if(day === 0) {
             alert("Sonntags haben wir geschlossen. Bitte wählen Sie ein anderes Datum.");
             this.value = "";
@@ -786,15 +801,14 @@ if (datePicker) {
     });
 }
 
-// Mobile Menu Toggle
+// Mobile Menu
 const menuToggle = document.getElementById('mobile-menu');
 if (menuToggle) {
     menuToggle.onclick = function() {
         document.getElementById('nav-list').classList.toggle('active');
     };
 }
-        
 </script>
-        
+
 </body>
 </html>
