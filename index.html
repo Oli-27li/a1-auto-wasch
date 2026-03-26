@@ -105,11 +105,27 @@
     border-radius: 3px;
     transition: 0.3s;
 }
-
 @media (max-width: 1024px) {
-    .menu-toggle {
-        display: flex !important;
+    .hero-banner {
+        background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg') !important;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center !important;
+        min-height: 60vh !important;
+        filter: none !important;
     }
+
+    .hero-text-box {
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 20px !important;
+        width: 85% !important;
+        margin: 0 auto !important;
+        border-radius: 20px !important;
+    }
+
+    .menu-toggle { display: flex !important; }
 
     .nav-links {
         display: none;
@@ -120,28 +136,11 @@
         width: 100%;
         background: white;
         padding: 20px 0;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        text-align: center;
+        z-index: 1000;
     }
 
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        margin: 15px 0 !important;
-        font-size: 18px;
-        width: 100%;
-    }
-
-    .hero-banner {
-        background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg') !important;
-        background-attachment: scroll !important;
-        background-size: cover !important;
-        background-position: center !important;
-        height: 60vh !important;
-    }
-
+    .nav-links.active { display: flex; }
+}
     .hero-text-box {
         background: rgba(255, 255, 255, 0.3) !important;
         padding: 20px !important;
