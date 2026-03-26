@@ -656,21 +656,25 @@
             <div class="time-slots" id="timeSlots"></div>
         </div>
 
-        <div class="user-details" style="margin-top: 20px;">
-            <input type="text" name="Name" placeholder="Ihr Name" required style="width: 100%; margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+<div class="user-details" style="margin-top: 20px;">
+            <input type="text" name="Name" placeholder="Ihr Name" required>
+
             <p>Gewünschte Uhrzeit:</p>
-        <select name="Wunschzeit" required style="width: 100%; margin-bottom: 15px; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; background-color: white;">
-            <option value="" disabled selected>Zeit wählen...</option>
-            <option value="10:00">10:00 Uhr</option>
-            <option value="11:00">11:00 Uhr</option>
-            <option value="13:00">13:00 Uhr</option>
-            <option value="14:00">14:00 Uhr</option>
-            <option value="15:00">15:00 Uhr</option>
-            <option value="16:00">16:00 Uhr</option>
-            <option value="17:00">17:00 Uhr</option>
-        </select>
-            <input type="tel" name="Telefon" placeholder="Ihre Telefonnummer" required style="width: 100%; margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <select name="Wunschzeit" required>
+                <option value="" disabled selected>Zeit wählen...</option>
+                <option value="10:00">10:00 Uhr</option>
+                <option value="11:00">11:00 Uhr</option>
+                <option value="13:00">13:00 Uhr</option>
+                <option value="14:00">14:00 Uhr</option>
+                <option value="15:00">15:00 Uhr</option>
+                <option value="16:00">16:00 Uhr</option>
+                <option value="17:00">17:00 Uhr</option>
+            </select>
+
+            <input type="tel" name="Telefon" placeholder="Ihre Telefonnummer" required>
         </div>
+
+        <button type="submit" class="btn-confirm">Termin buchen</button>
 
         <button type="submit" class="btn-book" style="width: 100%; padding: 15px; background-color: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer;">Termin buchen</button>
     </form>
