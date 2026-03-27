@@ -106,15 +106,14 @@
     transition: 0.3s;
 }
 @media (max-width: 1024px) {
-    .hero-banner {
-        background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg') !important;
-        background-attachment: scroll !important;
-        background-size: cover !important;
-        background-position: center !important;
-        min-height: 60vh !important;
-        filter: none !important;
-    }
-
+   .hero-banner {
+    background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg') !important;
+    background-attachment: scroll !important; /* Fixed не работает на iOS */
+    background-size: cover !important;
+    background-position: center center !important;
+    min-height: 80vh !important; /* Увеличьте высоту, чтобы фото было видно */
+    display: flex !important;
+}
     .hero-text-box {
         background: rgba(255, 255, 255, 0.2) !important;
         backdrop-filter: none !important;
