@@ -115,28 +115,26 @@
     .logo-img {
         max-height: 40px !important;
     }
-
-    /* Возвращаем фото машины */
+    /* Убираем сильный туман и серый фон для мобилок */
     .hero-banner {
         background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg') !important;
-        background-attachment: scroll !important;
         background-size: cover !important;
         background-position: center !important;
-        min-height: 450px !important;
-        height: auto !important;
-        margin-top: 0 !important;
+        background-attachment: scroll !important; /* На мобилках scroll работает лучше */
+        min-height: 450px !important; /* Принудительно задаем высоту, чтобы фото было видно */
         display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-top: 0 !important;
     }
 
-    /* Белое облако с текстом делаем аккуратным */
     .hero-text-box {
-        background: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.9) !important; /* Делаем белое облако четче */
         padding: 20px !important;
-        width: 85% !important;
+        width: 85% !important; /* Чуть уменьшаем ширину, чтобы не лезло на края */
         border-radius: 20px !important;
         margin: 0 auto !important;
     }
-
     /* Чиним форму TERMIN BUCHEN */
     .booking-container {
         width: 100% !important;
