@@ -157,9 +157,9 @@
         height: 50px !important;
     }
 }
-        .header-left {
+       .header-left {
     display: flex !important;
-    align-items: center !important;
+    align-items: center !important; /* Base center alignment */
     justify-content: flex-start !important;
 }
 
@@ -176,8 +176,16 @@
     font-weight: bold !important;
     text-transform: uppercase !important;
     margin: 0 !important;
-    margin-bottom: 4px !important;
     line-height: 1 !important;
+    /* FORCE TEXT UP */
+    transform: translateY(-5px) !important; /* Desktop lift */
+}
+
+/* Adjust lift for mobile screens */
+@media (max-width: 1024px) {
+    .brand-name {
+        transform: translateY(-8px) !important; /* Mobile lift */
+    }
 }
         .nav-links a {
             text-decoration: none;
