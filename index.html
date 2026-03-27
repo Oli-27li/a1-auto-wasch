@@ -105,7 +105,57 @@
     border-radius: 3px;
     transition: 0.3s;
 }
-        
+@media (max-width: 1024px) {
+   .hero-banner {
+    background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg') !important;
+    background-attachment: scroll !important; /* Fixed не работает на iOS */
+    background-size: cover !important;
+    background-position: center center !important;
+    min-height: 80vh !important; /* Увеличьте высоту, чтобы фото было видно */
+    display: flex !important;
+}
+    .hero-text-box {
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 20px !important;
+        width: 85% !important;
+        margin: 0 auto !important;
+        border-radius: 20px !important;
+    }
+
+    .menu-toggle { display: flex !important; }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        z-index: 1000;
+    }
+
+    .nav-links.active { display: flex; }
+}
+    .hero-text-box {
+        background: rgba(255, 255, 255, 0.3) !important;
+        padding: 20px !important;
+        width: 90% !important;
+    }
+
+    .booking-container input,
+    .booking-container select,
+    .btn-confirm {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: block !important;
+        margin: 10px 0 !important;
+        height: 50px !important;
+    }
+}
 .header-left { display: flex; align-items: center; }
         .logo-img { max-height: 55px; width: auto; margin-right: 15px; }
         .brand-name {
