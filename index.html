@@ -106,34 +106,23 @@
     transition: 0.3s;
 }
 @media (max-width: 1024px) {
-.hero-text-box {
-    background: rgba(255, 255, 255, 0.7) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-
-    /* ИСПРАВЛЕНИЕ ТУТ: */
-    width: 85% !important;        /* Не даем блоку прилипать к краям */
-    max-width: 500px !important;  /* На больших экранах не даем расплываться */
-    padding: 20px 15px !important; /* Уменьшаем внутренние отступы для узких экранов */
-    border-radius: 25px !important;
-    box-sizing: border-box !important; /* Чтобы отступы не увеличивали ширину блока */
-
-    /* Центрируем блок, если он вдруг съехал */
-    margin: 0 auto !important;
+   .hero-banner {
+    background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg') !important;
+    background-attachment: scroll !important; /* Fixed не работает на iOS */
+    background-size: cover !important;
+    background-position: center center !important;
+    min-height: 80vh !important; /* Увеличьте высоту, чтобы фото было видно */
+    display: flex !important;
 }
-
-/* Исправляем сам заголовок внутри блока */
-.hero-text-box h1 {
-    font-size: clamp(20px, 6vw, 40px) !important; /* Умный размер: минимум 20px, максимум 40px */
-    line-height: 1.2 !important;
-    margin-bottom: 10px !important;
-}
-
-/* Исправляем подзаголовок */
-.hero-text-box p {
-    font-size: clamp(14px, 4vw, 18px) !important;
-    margin-bottom: 20px !important;
-}
+    .hero-text-box {
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 20px !important;
+        width: 85% !important;
+        margin: 0 auto !important;
+        border-radius: 20px !important;
+    }
 
     .menu-toggle { display: flex !important; }
 
