@@ -157,10 +157,27 @@
         height: 50px !important;
     }
 }
-        .header-left { display: flex; align-items: center; }
-        .logo-img { max-height: 55px; width: auto; margin-right: 15px; }
-        .brand-name { color: #0091D5; font-size: 24px; font-weight: bold; text-transform: uppercase; }
+        .header-left {
+    display: flex !important;
+    align-items: center !important;
+    height: 100%;
+}
 
+.logo-img {
+    max-height: 55px !important;
+    width: auto;
+    margin-right: 15px !important;
+    display: block;
+}
+
+.brand-name {
+    color: #0091D5 !important;
+    font-size: 24px !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1 !important; /* Это уберет лишнее пространство сверху/снизу текста */
+    margin: 0 !important;
+}
         .nav-links a {
             text-decoration: none;
             color: #0091D5;
