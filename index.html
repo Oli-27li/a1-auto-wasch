@@ -115,16 +115,23 @@
     .logo-img {
         max-height: 40px !important;
     }
-    .hero-banner {
-    /* ЗАМЕНИ ЭТУ ССЫЛКУ! Старая с 'blob' на телефонах не открывается */
-    background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: scroll !important; /* На мобилках fixed УБИВАЕТ картинку */
-    height: 100vh !important;
-    display: flex !important;
-    margin-top: -85px !important; /* Чтобы она заходила под прозрачную шапку как на ПК */
+  .hero-banner {
+    min-height: 70vh;
+    background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* мобильная версия */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 55vh;
+        background-attachment: scroll; /* важно */
+    }
     .hero-text-box {
     background: rgba(255, 255, 255, 0.7) !important;
     backdrop-filter: blur(10px) !important;
