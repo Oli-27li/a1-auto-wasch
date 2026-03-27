@@ -106,65 +106,40 @@
     transition: 0.3s;
 }
 @media (max-width: 1024px) {
-    /* Исправляем шапку, чтобы текст не лез на логотип */
-    .brand-name {
-        font-size: 16px !important;
-        margin-bottom: 5px !important;
-        transform: translateY(-5px) !important;
-    }
-    .logo-img {
-        max-height: 40px !important;
-    }
-  .hero-banner {
-    min-height: 70vh;
-    background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* мобильная версия */
-@media (max-width: 768px) {
     .hero-banner {
-        min-height: 55vh;
-        background-attachment: scroll; /* важно */
+        background-image: url('https://raw.githubusercontent.com/Oli-27li/a1-auto-wasch/main/hero-white-car.jpg') !important;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center !important;
+        min-height: 60vh !important;
+        filter: none !important;
     }
+
     .hero-text-box {
-    background: rgba(255, 255, 255, 0.7) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important; /* Для iPhone */
-    padding: 30px !important;
-    width: 80% !important;
-    border-radius: 30px !important;
-    margin: 0 auto !important;
-}
-
-    .booking-container {
-        width: 100% !important;
-        padding: 10px !important;
-        box-sizing: border-box !important;
-    }
-    .booking-container input,
-    .booking-container select,
-    .btn-book {
-        width: 100% !important;
-        height: 45px !important;
-        margin: 5px 0 !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 20px !important;
+        width: 85% !important;
+        margin: 0 auto !important;
+        border-radius: 20px !important;
     }
 
-    /* Кнопка меню (три полоски) */
     .menu-toggle { display: flex !important; }
+
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px; left: 0; width: 100%;
-        background: white; padding: 20px 0;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        z-index: 1000;
     }
-    .nav-links.active { display: flex !important; }
+
+    .nav-links.active { display: flex; }
 }
     .hero-text-box {
         background: rgba(255, 255, 255, 0.3) !important;
