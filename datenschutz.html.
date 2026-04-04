@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - A1 Auto Wasch</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: auto; color: #333; }
+        h1, h2, h3 { color: #000; }
+        a { color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+   <h1>Datenschutzerklärung</h1>
 <h1>Datenschutz&shy;erkl&auml;rung</h1>
 <h2>1. Datenschutz auf einen Blick</h2>
 <h3>Allgemeine Hinweise</h3> <p>Die folgenden Hinweise geben einen einfachen &Uuml;berblick dar&uuml;ber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie pers&ouml;nlich identifiziert werden k&ouml;nnen. Ausf&uuml;hrliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgef&uuml;hrten Datenschutzerkl&auml;rung.</p>
@@ -33,3 +48,5 @@ Lebacher Str. 145, 66113 Saarbr&uuml;cken</p>
 <p>Telefon: 0681-39689991<br />
 E-Mail: info@a1-autowasch.de</p>
  <p>Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person, die allein oder gemeinsam mit anderen &uuml;ber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen, E-Mail-Adressen o. &Auml;.) entscheidet.</p>
+</body>
+</html>
