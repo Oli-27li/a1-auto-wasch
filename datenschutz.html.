@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutzerklärung - A1 Auto Wasch</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: auto; color: #333; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+            background-color: #fff;
+        }
         h1, h2, h3 { color: #000; }
-        a { color: #007bff; text-decoration: none; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #007bff; text-decoration: none; }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
    <h1>Datenschutzerklärung</h1>
 <h1>Datenschutz&shy;erkl&auml;rung</h1>
@@ -48,5 +57,12 @@ Lebacher Str. 145, 66113 Saarbr&uuml;cken</p>
 <p>Telefon: 0681-39689991<br />
 E-Mail: info@a1-autowasch.de</p>
  <p>Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person, die allein oder gemeinsam mit anderen &uuml;ber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen, E-Mail-Adressen o. &Auml;.) entscheidet.</p>
+<hr>
+    <h3>Zusätzliche Dienste</h3>
+    <h4>Cloudflare</h4>
+    <p>Wir nutzen Cloudflare zur Absicherung unserer Website. Anbieter ist die Cloudflare Inc., USA.</p>
+    <h4>Formspree</h4>
+    <p>Für unser Kontaktformular nutzen wir Formspree. Anbieter ist die Formspree Inc., USA.</p>
 </body>
 </html>
+
